@@ -1,12 +1,23 @@
 extends KinematicBody
 
+export (PackedScene) var drop_projectile:PackedScene = null
+
 onready var camera = $Camera
 
 var gravity = -30
 var max_speed = 8
+var move_strength = 2
 var mouse_sensitivity = 0.002  # radians/pixel
 
+var movement_drag = 1.1
+
+var knockback_strength = 400
+
+var stunned = false
 var velocity = Vector3()
+
+var items = {}
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -33,8 +44,61 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	var desired_velocity = get_move_input() * max_speed
+	velocity.x /= movement_drag
+	velocity.z /= movement_drag
+	var movement_velocity = get_move_input() * move_strength
+	if stunned:
+		movement_velocity = Vector3.ZERO
 
-	velocity.x = desired_velocity.x
-	velocity.z = desired_velocity.z
+	velocity.x = abs_limited(max_speed, velocity.x + movement_velocity.x)
+	velocity.z = abs_limited(max_speed, velocity.z + movement_velocity.z)
 	velocity = move_and_slide(velocity, Vector3.UP, true)
+
+func use_item(item_name):
+	if not items.has(item_name):
+		return false
+	
+	if items[item_name] <= 0:
+		return false
+	
+	items[item_name] -= 1
+	return true
+
+func _process(delta):
+	if not stunned:
+		if Input.is_action_just_pressed("use_item"):
+			if use_item("Drop"):
+				var projectile = drop_projectile.instance()
+				get_parent().add_child(projectile)
+				
+
+func abs_limited(max_val, val):
+	return max(min(val, max_val), -max_val)
+
+func add_velocity_impulse(strength:float, direction:Vector3):
+	velocity += direction.normalized() * strength
+
+
+func _on_Hurtbox_area_entered(area):
+	var direction = global_transform.origin - area.global_transform.origin
+	
+	add_velocity_impulse(knockback_strength, direction)
+	stunned = true
+	$StunTimer.start()
+	
+	$AnimationPlayer.play("Hurt")
+
+
+func _on_StunTimer_timeout():
+	stunned = false
+
+func _on_PickupBox_area_entered(area):
+	area.emit_signal("on_pickup")
+	var item_name = area.item_name
+	
+	if items.has(item_name):
+		items[item_name] += 1
+	else:
+		items[item_name] = 1
+	
+	print_debug("You now have " + str(items[item_name]) + " " + item_name)

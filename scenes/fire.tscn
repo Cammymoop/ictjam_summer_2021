@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://particles/flame_particle_pass.tres" type="QuadMesh" id=1]
 
@@ -67,6 +67,9 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id=12]
 material = SubResource( 11 )
 
+[sub_resource type="SphereShape" id=13]
+radius = 3.51604
+
 [node name="fire" type="Spatial"]
 
 [node name="FireParticles" type="Particles" parent="."]
@@ -83,3 +86,11 @@ amount = 190
 lifetime = 1.47
 process_material = SubResource( 10 )
 draw_pass_1 = SubResource( 12 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78167, 0 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 13 )

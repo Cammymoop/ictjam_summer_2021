@@ -1,18 +1,41 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/water_plant.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="World" id=1]
 environment = ExtResource( 4 )
 
 [sub_resource type="CubeMesh" id=2]
 
-[sub_resource type="BoxShape" id=3]
-
 [node name="Spatial" type="Spatial"]
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+stretch_shrink = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer2"]
+size = Vector2( 800, 400 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="ViewportContainer2/Viewport"]
+
+[node name="Plant1" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3946, 0, 12.6561 )
+
+[node name="Player" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 0.697765, 0, -0.716326, 0, 1, 0, 0.716326, 0, 0.697765, -16.9528, 2.9083, 18.1344 )
 
 [node name="fires" type="Node" parent="."]
 
@@ -32,7 +55,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.025, 0, -4.02946 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30416, 0, 0.159092 )
 
 [node name="Spatial6" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30416, 0, 4.11158 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1527, 0, 4.11158 )
 
 [node name="Spatial7" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1465, 0, -19.004 )
@@ -53,10 +76,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4196, 0, 0.159092 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4196, 0, 4.11158 )
 
 [node name="Spatial13" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97718, 0, 1.34183 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8289, 0, 9.52205 )
+
+[node name="Spatial31" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23916, 0, 9.52205 )
 
 [node name="Spatial14" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.50193, 0, 43.3699 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15921, -0.125666, 43.2218 )
 
 [node name="Spatial15" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7351, 0, 10.9047 )
@@ -68,13 +94,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7351, 0, 17.9977 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7351, 0, 22.1863 )
 
 [node name="Spatial18" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7351, 0, 26.1388 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7351, 0, 26.6081 )
 
 [node name="Spatial19" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, -19.1634, 0, 41.3047 )
+transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, -20.9905, 0, 45.3639 )
 
 [node name="Spatial20" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, -14.331, 0, 48.058 )
+transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, -13.5301, 0, 45.5839 )
 
 [node name="Spatial21" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, -27.2204, 3.8147e-06, 42.6196 )
@@ -86,7 +112,7 @@ transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924,
 transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, 2.62063, 0, 35.9281 )
 
 [node name="Spatial24" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, 5.83497, 0, 33.6281 )
+transform = Transform( -0.581924, 0, 0.813243, 0, 1, 0, -0.813243, 0, -0.581924, 6.88603, 0, 32.679 )
 
 [node name="Spatial25" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 0.868744, 0, 0.495262, 0, 1, 0, -0.495262, 0, 0.868744, -39.4738, 0, 11.3581 )
@@ -104,13 +130,7 @@ transform = Transform( 0.868744, 0, 0.495262, 0, 1, 0, -0.495262, 0, 0.868744, -
 transform = Transform( 0.868744, 0, 0.495262, 0, 1, 0, -0.495262, 0, 0.868744, -36.3646, 0, 33.5794 )
 
 [node name="Spatial30" parent="fires" instance=ExtResource( 1 )]
-transform = Transform( 0.868744, 0, 0.495262, 0, 1, 0, -0.495262, 0, 0.868744, -34.4071, 0, 37.0131 )
-
-[node name="Plant1" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3946, 0, 12.6561 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.697765, 0, -0.716326, 0, 1, 0, 0.716326, 0, 0.697765, -16.9528, 2.9083, 18.1344 )
+transform = Transform( 0.868744, 0, 0.495262, 0, 1, 0, -0.495262, 0, 0.868744, -33.3813, 0, 37.8074 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 visible = false
@@ -125,7 +145,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 1064, 640 )
+size = Vector2( 1640, 840 )
 own_world = true
 world = SubResource( 1 )
 transparent_bg = true
@@ -142,8 +162,13 @@ transform = Transform( -0.0462267, -0.0270969, 0.998563, 0, 0.999632, 0.0271259,
 
 [node name="Solid" type="Spatial" parent="."]
 
-[node name="StaticBody" type="StaticBody" parent="Solid"]
+[node name="Floor" parent="Solid" instance=ExtResource( 6 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="Solid/StaticBody"]
-transform = Transform( 200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0, 0 )
-shape = SubResource( 3 )
+[node name="Wall" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4838, 0, 0 )
+
+[node name="Wall2" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( 0.981627, 0, 0.190809, 0, 1, 0, -0.190809, 0, 0.981627, -25.3402, 0, 0.534461 )
+
+[node name="Wall3" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( -0.957903, 0, 0.287093, 0, 1, 0, -0.287093, 0, -0.957903, -35.1983, 0, 0.534461 )

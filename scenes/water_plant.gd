@@ -3,8 +3,8 @@ extends Spatial
 onready var whole_model = $Model
 onready var drop_model = $Model/Drop
 
-var grow_speed = 0.05
-var drop_grow_speed = 0.1
+var grow_speed = 0.5
+var drop_grow_speed = 0.18
 var growth = 0
 var growing = false
 
@@ -26,9 +26,9 @@ func baby():
 	growth = 0
 
 func grow_drop():
-	drop_model.scale = Vector3.ONE * 0.01
+	drop_model.scale = Vector3.ZERO
 	drop_model.visible = true
-	growth = 0
+	growth = -0.6
 	growing_drop = true
 
 func take_drop():
@@ -47,8 +47,9 @@ func _process(delta):
 			growing = false
 			grow_drop()
 	elif growing_drop:
-		growth = min(1, growth + (grow_speed * delta))
-		drop_model.scale = Vector3.ONE * growth
+		growth = min(1, growth + (drop_grow_speed * delta))
+		if growth > 0:
+			drop_model.scale = Vector3.ONE * growth
 		if growth >= 1:
 			growing = false
 			growing_drop = false

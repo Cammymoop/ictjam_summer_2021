@@ -103,10 +103,5 @@ shape = SubResource( 13 )
 wait_time = 3.0
 one_shot = true
 
-[node name="SpreadTimer" type="Timer" parent="."]
-wait_time = 20.0
-one_shot = true
-
 [connection signal="put_out" from="Area" to="." method="_on_Area_put_out"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
-[connection signal="timeout" from="SpreadTimer" to="." method="_on_SpreadTimer_timeout"]

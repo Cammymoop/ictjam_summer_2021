@@ -5,18 +5,19 @@ export (PackedScene) var drop_projectile:PackedScene = null
 onready var camera = $Camera
 
 var gravity = -30
-var max_speed = 8
-var move_strength = 2
+var max_speed = 11
+var move_strength = 3
 var mouse_sensitivity = 0.002  # radians/pixel
 
 var movement_drag = 1.1
 
 var knockback_strength = 400
+var throw_force = 1500
 
 var stunned = false
 var velocity = Vector3()
 
-var items = {}
+var items = {"Drop": 9}
 
 
 func _ready():
@@ -69,8 +70,9 @@ func _process(delta):
 		if Input.is_action_just_pressed("use_item"):
 			if use_item("Drop"):
 				var projectile = drop_projectile.instance()
+				projectile.global_transform = camera.global_transform
+				projectile.add_central_force(projectile.transform.basis * Vector3.FORWARD * throw_force)
 				get_parent().add_child(projectile)
-				
 
 func abs_limited(max_val, val):
 	return max(min(val, max_val), -max_val)

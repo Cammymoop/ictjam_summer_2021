@@ -1,0 +1,52 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+
+[ext_resource path="res://particles/WaterDrops.shader" type="Shader" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.945736, 1 )
+colors = PoolColorArray( 0.0579071, 0.149567, 0.644531, 1, 0.363052, 0.763308, 0.902344, 1, 0.78125, 0.94873, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.861842, 0.852273 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.125 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/direction = Vector3( 0, 1, 0 )
+shader_param/spread = 90.0
+shader_param/flatness = 0.0
+shader_param/initial_linear_velocity = 6.13
+shader_param/initial_angle = 0.0
+shader_param/angular_velocity = 0.0
+shader_param/orbit_velocity = 0.0
+shader_param/linear_accel = 0.0
+shader_param/radial_accel = 0.0
+shader_param/tangent_accel = 0.0
+shader_param/damping = 3.5
+shader_param/scale = 1.4
+shader_param/hue_variation = 0.0
+shader_param/anim_speed = 0.0
+shader_param/anim_offset = 0.0
+shader_param/initial_linear_velocity_random = 0.0
+shader_param/initial_angle_random = 0.0
+shader_param/angular_velocity_random = 0.0
+shader_param/orbit_velocity_random = 0.0
+shader_param/linear_accel_random = 0.0
+shader_param/radial_accel_random = 0.0
+shader_param/tangent_accel_random = 0.0
+shader_param/damping_random = 0.0
+shader_param/scale_random = 0.7
+shader_param/hue_variation_random = 0.0
+shader_param/anim_speed_random = 0.0
+shader_param/anim_offset_random = 0.0
+shader_param/lifetime_randomness = 0.0
+shader_param/color_value = Color( 0.0666667, 0.537255, 0.952941, 1 )
+shader_param/trail_divisor = 1
+shader_param/gravity = Vector3( 0, -9.595, 0 )
+shader_param/color_ramp = SubResource( 2 )
+shader_param/scale_texture = SubResource( 4 )

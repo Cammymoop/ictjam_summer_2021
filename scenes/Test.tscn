@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/water_plant.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/fires.gd" type="Script" id=7]
 
 [sub_resource type="World" id=1]
 environment = ExtResource( 4 )
@@ -38,9 +39,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3946, 0, 12.6561 )
 transform = Transform( 0.697765, 0, -0.716326, 0, 1, 0, 0.716326, 0, 0.697765, -16.9528, 2.9083, 18.1344 )
 
 [node name="fires" type="Node" parent="."]
+script = ExtResource( 7 )
 
 [node name="Spatial" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.044, 0, -20.6854 )
+
+[node name="Spatial32" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.044, 0, 81.448 )
 
 [node name="Spatial2" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30416, 0, -20.6854 )

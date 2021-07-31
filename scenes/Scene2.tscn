@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/Cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/fires.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Ramp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/water_plant.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/EmptySpot.tscn" type="PackedScene" id=9]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+stretch_shrink = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer2"]
+size = Vector2( 800, 400 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="ViewportContainer2/Viewport"]
+
+[node name="Plant1" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3946, 0, 12.6561 )
+
+[node name="Player" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 4 )]
+transform = Transform( 0.697765, 0, -0.716326, 0, 1, 0, 0.716326, 0, 0.697765, -16.9528, 2.9083, 18.1344 )
+
+[node name="fires" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="fire" parent="fires" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8023, 6.23073, -2.32314 )
+
+[node name="Solid" type="Spatial" parent="."]
+
+[node name="Floor" parent="Solid" instance=ExtResource( 8 )]
+
+[node name="Wall" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4838, 0, 0 )
+
+[node name="Wall4" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( 2.42762, 0, 0, 0, 1.17333, -0.858235, 0, 1.96196, 0.513257, 9.28387, 0, 42.1809 )
+
+[node name="Wall2" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( 0.981627, 0, 0.190809, 0, 1, 0, -0.190809, 0, 0.981627, -25.3402, 0, 0.534461 )
+
+[node name="Wall3" parent="Solid" instance=ExtResource( 5 )]
+transform = Transform( -0.957903, 0, 0.287093, 0, 1, 0, -0.287093, 0, -0.957903, -35.1983, 0, 0.534461 )
+
+[node name="Cube" parent="Solid" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89.9218 )
+
+[node name="Ramp" parent="Solid" instance=ExtResource( 6 )]
+transform = Transform( 0.792577, 0, 0.609772, 0, 1, 0, -0.609772, 0, 0.792577, 17.7674, 0, 0 )
+
+[node name="EmptySpot" parent="Solid" instance=ExtResource( 9 )]

@@ -83,6 +83,7 @@ func add_velocity_impulse(strength:float, direction:Vector3):
 
 func _on_Hurtbox_area_entered(area):
 	var direction = global_transform.origin - area.global_transform.origin
+	direction.y = 0
 	
 	add_velocity_impulse(knockback_strength, direction)
 	stunned = true

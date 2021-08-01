@@ -63,13 +63,11 @@ func _process(delta):
 	
 	if active:
 		water_amount -= delta * water_drain
-		print(water_amount)
 		if water_amount < 0:
 			deactivate()
 		else:
 			var new_scale = cubes_target_scale * Vector3.ONE * water_amount
 			for cube in cube_models.get_children():
-				print(new_scale)
 				cube.scale = new_scale
 			
 			var max_index = floor(water_amount * particle_groups)

@@ -65,7 +65,7 @@ transform = Transform( 0.544507, 0, 0.838756, 0, 1, 0, -0.838756, 0, 0.544507, -
 start_baby = false
 
 [node name="Player" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 3 )]
-transform = Transform( 0.653037, 0, -0.757325, 0, 1, 0, 0.757325, 0, 0.653037, -85.3156, 2.9083, 31.8378 )
+transform = Transform( 0.653037, 0, -0.757325, 0, 1, 0, 0.757325, 0, 0.653037, -85.3156, 2.14514, 31.8378 )
 
 [node name="fires" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -618,6 +618,33 @@ transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.1
 [node name="Drop7" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
 transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 95.9607, 0.776314, -50.1195 )
 
+[node name="Drop18" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 37.1239, 0.776314, 15.4538 )
+
+[node name="Drop19" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 41.1953, 0.776314, 8.63414 )
+
+[node name="Drop20" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -31.9361, 0.776314, 55.3196 )
+
+[node name="Drop21" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -88.1532, 0.776314, -41.157 )
+
+[node name="Drop22" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -73.9212, 0.776314, -45.7036 )
+
+[node name="Drop23" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -74.6221, 0.776314, -38.2288 )
+
+[node name="Drop24" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -150.21, 0.776314, 26.9692 )
+
+[node name="Drop25" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -151.416, 0.776314, 34.1267 )
+
+[node name="Drop26" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -67.9012, 0.776314, 2.66714 )
+
 [node name="Drop13" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
 transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -122.621, 0.77631, -35.273 )
 
@@ -629,6 +656,9 @@ transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.1
 
 [node name="Drop16" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
 transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -26.1623, 0.776318, -12.7617 )
+
+[node name="Drop27" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 17.3388, 4.08751, -30.4007 )
 
 [node name="Drop17" parent="Thingies/Pickups/Drops" instance=ExtResource( 13 )]
 transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 67.9847, 0.776318, -81.4919 )
@@ -672,7 +702,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5272, 3.8147e-06, -14.6166 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 68.224, 3.8147e-06, -9.59951 )
 
 [node name="FountainSeedPickup5" parent="Thingies/Pickups/FountainSeeds" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77.0201, 3.8147e-06, 5.24774 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -159.998, 3.8147e-06, 20.1687 )
 
 [node name="FountainSeedPickup6" parent="Thingies/Pickups/FountainSeeds" instance=ExtResource( 17 )]
 transform = Transform( 0.977353, 0, 0.211615, 0, 1, 0, -0.211615, 0, 0.977353, -80.1064, 3.8147e-06, 7.6525 )
@@ -681,10 +711,10 @@ transform = Transform( 0.977353, 0, 0.211615, 0, 1, 0, -0.211615, 0, 0.977353, -
 transform = Transform( 0.977353, 0, 0.211615, 0, 1, 0, -0.211615, 0, 0.977353, -152.471, 3.8147e-06, 59.4016 )
 
 [node name="FountainSeedPickup7" parent="Thingies/Pickups/FountainSeeds" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.0224, 3.8147e-06, 5.33374 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.428, 3.8147e-06, -59.7927 )
 
 [node name="FountainSeedPickup8" parent="Thingies/Pickups/FountainSeeds" instance=ExtResource( 17 )]
-transform = Transform( 0.0234202, 0, -0.999726, 0, 1, 0, 0.999726, 0, 0.0234202, -82.4763, 3.8147e-06, 3.01539 )
+transform = Transform( 0.0234202, 0, -0.999726, 0, 1, 0, 0.999726, 0, 0.0234202, -105.882, 3.8147e-06, -62.1111 )
 
 [node name="WaterSeeds" type="Spatial" parent="Thingies/Pickups"]
 
@@ -699,6 +729,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.79729, 0, -106.434 )
 
 [node name="WaterSeedPickup5" parent="Thingies/Pickups/WaterSeeds" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -160.513, 0, 16.8168 )
+
+[node name="WaterSeedPickup7" parent="Thingies/Pickups/WaterSeeds" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.1953, 0, 4.28965 )
 
 [node name="WaterSeedPickup6" parent="Thingies/Pickups/WaterSeeds" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -163.123, 0, 23.7736 )
@@ -777,6 +810,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9147, -3.8147e-06, -38.8503
 
 [node name="EmptySpot9" parent="Thingies/DirtSpots" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5404, -3.8147e-06, -1.9841 )
+
+[node name="EmptySpot18" parent="Thingies/DirtSpots" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1079, -3.8147e-06, 15.8327 )
 
 [node name="Edges" type="Spatial" parent="."]
 

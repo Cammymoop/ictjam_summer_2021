@@ -7,7 +7,7 @@
 [sub_resource type="SphereShape" id=1]
 radius = 0.522894
 
-[sub_resource type="ArrayMesh" id=5]
+[sub_resource type="ArrayMesh" id=2]
 resource_name = "Icosphere"
 surfaces/0 = {
 "aabb": AABB( -0.951058, -1, -1, 1.90212, 2, 2 ),
@@ -22,7 +22,7 @@ surfaces/0 = {
 "vertex_count": 240
 }
 
-[sub_resource type="ArrayMesh" id=6]
+[sub_resource type="ArrayMesh" id=3]
 resource_name = "Plane003"
 surfaces/0 = {
 "aabb": AABB( -1.29116, 0, -0.0407404, 1.36855, 0.101684, 1.36856 ),
@@ -41,14 +41,14 @@ surfaces/0 = {
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 
-[sub_resource type="SphereMesh" id=7]
+[sub_resource type="SphereMesh" id=5]
 material = SubResource( 4 )
 radius = 0.2
 height = 0.4
 radial_segments = 10
 rings = 5
 
-[sub_resource type="SphereShape" id=8]
+[sub_resource type="SphereShape" id=6]
 radius = 6.77631
 
 [node name="DropProjectile" type="RigidBody"]
@@ -70,22 +70,22 @@ transform = Transform( 0.881954, 0, -0.471335, 0, 1, 0, 0.471335, 0, 0.881954, -
 
 [node name="Icosphere" type="MeshInstance" parent="Projectile/Drop"]
 transform = Transform( 0.893706, 0.44181, -0.0780567, -0.423846, 0.774368, -0.469796, -0.147116, 0.452944, 0.879317, -0.0198345, -0.984163, -0.176151 )
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Plane003" type="MeshInstance" parent="Projectile/Drop"]
 transform = Transform( 0.562336, 0.0175015, -0.180053, 0.0436732, -0.58369, 0.0796629, -0.175551, -0.0891472, -0.55694, 0.0124512, 0.0417404, -0.0726163 )
-mesh = SubResource( 6 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Plane004" type="MeshInstance" parent="Projectile/Drop"]
 transform = Transform( -0.225671, -0.178243, 0.60287, 0.0826549, -0.643388, -0.159283, 0.623211, 0.0207872, 0.239431, 0.0291176, 0.0379715, -0.078848 )
-mesh = SubResource( 6 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Plane005" type="MeshInstance" parent="Projectile/Drop"]
 transform = Transform( -0.372186, 0.112311, -0.416285, 0.0389482, -0.538918, -0.18022, -0.429406, -0.146227, 0.344466, 0.0291176, 0.0379715, -0.078848 )
-mesh = SubResource( 6 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Particles" type="Particles" parent="."]
@@ -96,7 +96,7 @@ one_shot = true
 explosiveness = 0.6
 local_coords = false
 process_material = ExtResource( 3 )
-draw_pass_1 = SubResource( 7 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -109,7 +109,7 @@ collision_layer = 0
 collision_mask = 4112
 
 [node name="CollisionShape" type="CollisionShape" parent="Detector"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [connection signal="body_entered" from="." to="." method="_on_DropProjectile_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

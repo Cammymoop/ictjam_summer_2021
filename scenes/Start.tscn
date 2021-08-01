@@ -30,6 +30,9 @@ start_baby = false
 transform = Transform( 0.672341, 0.193514, -0.714499, 0, 0.965225, 0.26142, 0.740241, -0.175764, 0.648961, -1.77693, 19.9936, 9.93953 )
 far = 250.0
 
+[node name="GoldenSeedPickup" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1.1684, 0, -0.241348, 0, 1.19307, 0, 0.241348, 0, -1.1684, 66.0151, 0.588555, -24.8045 )
+
 [node name="wall" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.157624, 0.823704, -0.000860263, -0.742969, 0.177414, -0.208882, -0.642818, -0.00307713, 0.241215, -8.11277, 12.3253, -5.48986 )
 
@@ -223,9 +226,6 @@ transform = Transform( 0.317864, 0, 0.385957, 0, 0.5, 0, -0.385957, 0, 0.317864,
 
 [node name="rock3" parent="rocks" instance=ExtResource( 4 )]
 transform = Transform( 0.317864, 0, 0.385957, 0, 0.5, 0, -0.385957, 0, 0.317864, 66.0151, 0, -24.8045 )
-
-[node name="GoldenSeedPickup" parent="rocks/rock3" instance=ExtResource( 8 )]
-transform = Transform( 1.36711, 0, 0, 0, 1.36711, 0, 0, 0, 1.36711, 0, 1.17711, 0 )
 
 [node name="rock4" parent="rocks" instance=ExtResource( 4 )]
 transform = Transform( -0.415798, 0, 0.277691, 0, 0.5, 0, -0.277691, 0, -0.415798, 53.7328, 0, -14.1915 )

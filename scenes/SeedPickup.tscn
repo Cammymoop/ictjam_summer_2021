@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/models/seed.glb" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Pickup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/JustPickup.gd" type="Script" id=3]
+
+[sub_resource type="SphereShape" id=3]
+radius = 3.13259
+
+[node name="WaterSeedPickup" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="seed" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.150563, 1.04645, -0.054364, -0.382665, -0.00378036, 0.987038, 0.975495, 0.160033, 0.378803, -0.490119, 0.154106, 0.153189 )
+
+[node name="Area" type="Area" parent="."]
+monitoring = false
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+item_name = "WaterSeed"
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
+
+[connection signal="on_pickup" from="Area" to="." method="_on_Area_on_pickup"]

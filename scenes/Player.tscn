@@ -1,18 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/DropProjectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GoldenDropProjectile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.489419
+radius = 0.828941
 height = 2.31526
 
 [sub_resource type="CapsuleShape" id=2]
-radius = 0.647366
-height = 2.27773
+radius = 1.00265
+height = 2.15413
 
 [sub_resource type="CapsuleShape" id=3]
-radius = 0.647366
+radius = 0.97241
 height = 2.27773
 
 [sub_resource type="Animation" id=4]
@@ -42,11 +43,18 @@ tracks/1/keys = {
 "values": [ Color( 1, 0, 0, 0.658824 ), Color( 1, 0, 0, 0 ) ]
 }
 
+[sub_resource type="SphereShape" id=5]
+radius = 0.720984
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 2.62222, 2.70463, 1.74083 )
+
 [node name="Player" type="KinematicBody" groups=[
 "Player",
 ]]
 script = ExtResource( 1 )
 drop_projectile = ExtResource( 2 )
+golden_drop_projectile = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -55,10 +63,11 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40779, 0 )
 current = true
-far = 200.0
+far = 600.0
 
 [node name="Hurtbox" type="Area" parent="."]
-collision_layer = 16
+visible = false
+collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape" type="CollisionShape" parent="Hurtbox"]
@@ -66,6 +75,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 2 )
 
 [node name="PickupBox" type="Area" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -88,6 +98,24 @@ color = Color( 1, 0, 0, 0.243137 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Feet" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.40332, 0 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Feet"]
+shape = SubResource( 5 )
+
+[node name="PlantLooker" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.47314 )
+monitorable = false
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape" type="CollisionShape" parent="PlantLooker"]
+shape = SubResource( 6 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="PickupBox" to="." method="_on_PickupBox_area_entered"]

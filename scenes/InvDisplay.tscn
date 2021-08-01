@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/WaterSeedInv.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/DropInv.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/GoldenSeedInv.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/GoldenDropInv.tscn" type="PackedScene" id=5]
+
+[sub_resource type="World" id=1]
+environment = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="ViewportContainer" type="ViewportContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1640, 840 )
+own_world = true
+world = SubResource( 1 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="test" type="CSGMesh" parent="Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06952, -3.14055, -7.81838 )
+visible = false
+mesh = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="Viewport"]
+transform = Transform( -0.0462267, -0.0270969, 0.998563, 0, 0.999632, 0.0271259, -0.998931, 0.00125394, -0.0462097, 10.0722, 2.67978, 0.00359043 )
+
+[node name="InvSpot" type="Spatial" parent="Viewport" groups=[
+"InvSpot",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06952, -3.14055, -7.81838 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Drop" parent="Viewport/InvSpot" instance=ExtResource( 3 )]
+visible = false
+
+[node name="WaterSeed" parent="Viewport/InvSpot" instance=ExtResource( 2 )]
+visible = false
+
+[node name="GoldenSeed" parent="Viewport/InvSpot" instance=ExtResource( 4 )]
+visible = false
+
+[node name="GoldenDrop" parent="Viewport/InvSpot" instance=ExtResource( 5 )]
+visible = false

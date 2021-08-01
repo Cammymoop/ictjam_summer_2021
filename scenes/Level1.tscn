@@ -1,0 +1,1094 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/fires.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/EmptySpot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/SeedPickup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Cube.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/models/rock.glb" type="PackedScene" id=8]
+[ext_resource path="res://scenes/water_plant.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Ramp.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/InvDisplay.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/DropPickup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/models/red.glb" type="PackedScene" id=14]
+[ext_resource path="res://scenes/GoldenSeedPickup.tscn" type="PackedScene" id=15]
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 4.70452, 5.40402, 6.27955 )
+
+[sub_resource type="CylinderShape" id=1]
+radius = 12.2821
+height = 9.54796
+
+[sub_resource type="CylinderShape" id=3]
+radius = 8.64871
+height = 9.54796
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 14.2319, 4.06586, 4.43199 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 34.1737, 13.2901, 21.8743 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 49.7498, 13.2901, 21.8743 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 156.001, 13.2901, 46.9295 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 128.442, 13.2901, 21.8743 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+stretch_shrink = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer2"]
+size = Vector2( 800, 400 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="ViewportContainer2/Viewport"]
+
+[node name="Plant1" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 9 )]
+transform = Transform( 0.544507, 0, 0.838756, 0, 1, 0, -0.838756, 0, 0.544507, -23.3632, 0.449891, 16.6129 )
+start_baby = false
+
+[node name="Player" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 3 )]
+transform = Transform( 0.653037, 0, -0.757325, 0, 1, 0, 0.757325, 0, 0.653037, -85.3156, 2.9083, 31.8378 )
+
+[node name="WaterSeedPickup" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.7319 )
+
+[node name="WaterSeedPickup2" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.213545, 0, -107.416 )
+
+[node name="WaterSeedPickup3" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27645, 0, -102.807 )
+
+[node name="WaterSeedPickup4" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.79729, 0, -106.434 )
+
+[node name="fires" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="fire2" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.7551, -0.747917, 6.06487 )
+
+[node name="fire3" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9792, -0.747917, 32.3975 )
+
+[node name="fire19" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6497, -0.747917, 41.2761 )
+
+[node name="fire20" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6634, -0.747921, 52.4534 )
+
+[node name="fire21" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0539, -0.747921, 61.4363 )
+
+[node name="fire22" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.9469, -0.747921, 54.7828 )
+
+[node name="fire23" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -81.1629, -0.747921, 56.4276 )
+
+[node name="fire24" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.64, -0.747919, 49.359 )
+
+[node name="fire25" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -106.877, -0.747917, 59.756 )
+
+[node name="fire26" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -114.753, -0.747917, 26.6526 )
+
+[node name="fire46" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -92.4519, 8.39024, 15.6806 )
+spreads = false
+
+[node name="fire47" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -98.7008, 8.39024, 14.8912 )
+spreads = false
+
+[node name="fire50" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -78.2978, 8.39024, 14.8912 )
+spreads = false
+
+[node name="fire48" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100.282, 8.39024, 20.5093 )
+spreads = false
+
+[node name="fire49" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -101.962, 8.39024, 24.8451 )
+spreads = false
+
+[node name="fire27" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -96.8284, -0.747917, -28.7846 )
+
+[node name="fire28" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -106.807, -0.747913, -2.89505 )
+
+[node name="fire29" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84.7553, -0.747913, -5.26707 )
+
+[node name="fire30" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100.534, -0.747913, -7.4751 )
+
+[node name="fire31" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -93.3025, -0.747913, -3.74391 )
+
+[node name="fire32" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3025, -0.747913, -13.7439 )
+
+[node name="fire33" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -110.043, -0.747913, -14.1764 )
+
+[node name="fire34" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2025, -0.747913, -45.403 )
+
+[node name="fire35" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7144, -0.747913, -37.5435 )
+
+[node name="fire36" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0119, -0.747913, -44.6778 )
+
+[node name="fire37" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5915, -0.747913, -48.3224 )
+
+[node name="fire38" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.0524, -0.747913, -47.4741 )
+
+[node name="fire39" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6259, -0.747917, -64.0681 )
+
+[node name="fire40" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.1556, -0.747917, -59.7009 )
+
+[node name="fire41" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9817, -0.747917, -60.5189 )
+
+[node name="fire42" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.4178, -0.747917, -38.4335 )
+
+[node name="fire43" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.3386, -0.747913, -40.8083 )
+
+[node name="fire44" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.9837, -0.747913, -45.3894 )
+
+[node name="fire45" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9837, -0.747913, -42.3894 )
+
+[node name="fire5" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13362, -0.747917, 2.9083 )
+
+[node name="fire6" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.02804, -0.747917, 25.9732 )
+
+[node name="fire7" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0544, -0.747917, 5.51553 )
+
+[node name="fire11" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1946, -0.747917, -17.731 )
+
+[node name="fire12" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1046, -0.747917, -29.6102 )
+
+[node name="fire13" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.846416, -0.747917, -26.9428 )
+
+[node name="fire14" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232868, 3.26497, 48.6587 )
+spreads = false
+extenguishable = false
+
+[node name="fire18" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5896, 3.26497, 63.9868 )
+spreads = false
+extenguishable = false
+
+[node name="fire15" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1178, -3.13652, 69.2932 )
+spreads = false
+extenguishable = false
+
+[node name="fire16" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1939, -3.13652, 59.9475 )
+spreads = false
+extenguishable = false
+
+[node name="fire17" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6108, -3.13652, 80.8925 )
+spreads = false
+extenguishable = false
+
+[node name="fire8" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.9208, -0.747917, 38.5625 )
+
+[node name="fire9" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.5699, -0.747917, 25.1183 )
+spreads = false
+
+[node name="fire10" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -77.1279, -0.747919, 23.0649 )
+spreads = false
+
+[node name="fire4" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.7551, -0.747917, 24.5655 )
+
+[node name="Solid" type="Spatial" parent="."]
+
+[node name="rock" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 1.31702, 0, 0, 0, 1.31702, 0, 0, 0, 1.31702, -23.8011, -0.613708, 14.9927 )
+
+[node name="rock2" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 0.206374, 0, 0.181298, 0, 0.274698, 0, -0.181298, 0, 0.206374, -35.741, -0.0419497, 14.9927 )
+
+[node name="rock3" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 0.131445, 0, 0.115474, 0, 0.174963, 0, -0.115474, 0, 0.131445, -39.341, 0.135834, 13.5985 )
+
+[node name="rock5" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 0.13775, 0, -0.0139824, 0, 0.138457, 0, 0.0139824, 0, 0.13775, -46.4274, 0.0293915, 13.5106 )
+
+[node name="rock6" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 0.0046244, 0, 0.13838, 0, 0.138457, 0, -0.13838, 0, 0.0046244, -50.8844, 0.0293915, 14.4293 )
+
+[node name="rock4" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 0.168414, 0, 0.14795, 0, 0.174963, 0, -0.106545, 0, 0.121282, -42.9833, 0.0215678, 15.7348 )
+
+[node name="Floor" parent="Solid" instance=ExtResource( 10 )]
+
+[node name="Wall" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4838, 0, 0 )
+
+[node name="Wall4" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 2.42762, 0, 0, 0, 2.28604, 0, 0, 0, 1, 8.49312, 0, 43.5354 )
+
+[node name="Wall15" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -1.45488, 0, -0.800522, 0, 2.28604, 0, 1.94336, 0, -0.599303, -12.7006, 0, 53.9818 )
+
+[node name="Wall16" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -1.91184, 0, -0.616266, 0, 2.28604, 0, 1.49606, 0, -0.787538, -30.5503, 0, 71.6095 )
+
+[node name="Wall13" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 2.38986, 0, -0.175676, 0, 2.28604, 0, 0.426474, 0, 0.984448, -50.0869, 0, 58.8165 )
+
+[node name="Wall17" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 1.81641, 0, 0.663443, 0, 2.28604, 0, -1.61059, 0, 0.748227, -71.8937, 0, 65.144 )
+
+[node name="Wall21" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.355094, 0, 0.989244, 0, 2.28604, 0, -2.40151, 0, 0.146273, -164.418, 0, -6.90551 )
+
+[node name="Wall22" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.17175, 0, 0.997494, 0, 2.28604, 0, -2.42154, 0, 0.0707491, -167.127, 0, 15.6115 )
+
+[node name="Wall23" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.76881, 0, -0.948529, 0, 2.28604, 0, 2.30267, 0, 0.316692, -164.249, 3.8147e-06, 39.8288 )
+
+[node name="Wall24" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.76881, 0, -0.948529, 0, 2.28604, 0, 2.30267, 0, 0.316692, -158.649, 0, 54.656 )
+
+[node name="Wall18" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 2.36067, 0, -0.233225, 0, 2.28604, 0, 0.566181, 0, 0.972423, -93.1825, 1.90735e-06, 70.4577 )
+
+[node name="Wall19" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 2.4275, 0, -0.010018, 0, 2.28604, 0, 0.0243199, 0, 0.99995, -117.743, 1.90735e-06, 67.3698 )
+
+[node name="Wall20" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 2.4275, 0, -0.010018, 0, 2.28604, 0, 0.0243199, 0, 0.99995, -142.269, 1.90735e-06, 66.6193 )
+
+[node name="Wall14" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -0.234364, 0, -0.995329, 0, 2.28604, 0, 2.41628, 0, -0.0965407, -40.4868, 0, 71.8097 )
+
+[node name="Wall2" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.981627, 0, 0.190809, 0, 1, 0, -0.190809, 0, 0.981627, -25.3402, 0, 0.534461 )
+
+[node name="Wall3" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -0.957903, 0, 0.287093, 0, 1, 0, -0.287093, 0, -0.957903, -35.1983, 0, 0.534461 )
+
+[node name="Wall25" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.990151, 0, 0.140003, 0, 1, 0, -0.140003, 0, 0.990151, -54.0186, 0, -116.881 )
+
+[node name="Wall26" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.945245, 0, 0.32636, 0, 1, 0, -0.32636, 0, 0.945245, -63.7031, 0, -114.971 )
+
+[node name="Wall27" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -0.988663, 0, 0.150156, 0, 1, 0, -0.150156, 0, -0.988663, -73.4641, 0, -113.591 )
+
+[node name="Wall28" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.999192, 0, 0.0401841, 0, 1, 0, -0.0401841, 0, 0.999192, -23.813, -1.52588e-05, -117.15 )
+
+[node name="Wall29" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.973167, 0, 0.230101, 0, 1, 0, -0.230101, 0, 0.973167, -33.6399, -1.52588e-05, -116.22 )
+
+[node name="Wall30" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -0.968666, 0, 0.248369, 0, 1, 0, -0.248369, 0, -0.968666, -43.4901, -1.52588e-05, -115.824 )
+
+[node name="Wall31" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.999192, 0, 0.0401841, 0, 1, 0, -0.0401841, 0, 0.999192, 7.68563, -7.62939e-06, -117.451 )
+
+[node name="Wall32" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.991369, 0, 0.131097, 0, 1, 0, -0.131097, 0, 0.991369, -2.48412, -7.62939e-06, -116.614 )
+
+[node name="Wall33" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.992146, 0, -0.125091, 0, 1, 0, 0.125091, 0, 0.992146, -12.8692, -7.62939e-06, -116.559 )
+
+[node name="Wall5" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.509117, 0, 0.860698, 0, 1, 0, -0.860698, 0, 0.509117, -70.8743, 0, 29.1055 )
+
+[node name="Wall6" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.335534, 0, 0.942028, 0, 1, 0, -0.942028, 0, 0.335534, -75.4324, 0, 37.861 )
+
+[node name="Wall7" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -0.734785, 0, -0.678301, 0, 1, 0, 0.678301, 0, -0.734785, -80.4513, 0, 46.3458 )
+
+[node name="Wall12" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( -0.734785, 0, -0.678301, 0, 1, 0, 0.678301, 0, -0.734785, -69.4675, 0, -2.76194 )
+
+[node name="Wall8" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.980683, 0, -0.195604, 0, 1, 0, 0.195604, 0, 0.980683, -89.1059, 0, 48.1253 )
+
+[node name="Wall9" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.353295, 0, -0.935512, 0, 1, 0, 0.935512, 0, 0.353295, -95.4807, 0, 42.3479 )
+
+[node name="Wall11" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.353295, 0, -0.935512, 0, 1, 0, 0.935512, 0, 0.353295, -71.4762, 0, 4.92663 )
+
+[node name="Wall10" parent="Solid" instance=ExtResource( 4 )]
+transform = Transform( 0.121783, 0, 0.992557, 0, 1, 0, -0.992557, 0, 0.121783, -97.1398, 0, 32.6305 )
+
+[node name="Cube" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -101.042, 0, 23.4199 )
+
+[node name="Cube2" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -101.196, 0, 14.8844 )
+
+[node name="Cube3" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -92.4343, 0, 14.9656 )
+
+[node name="Cube4" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.996336, 0, -0.0855213, 0, 1, 0, 0.0855213, 0, 0.996336, -83.887, 1.90735e-06, 15.2189 )
+
+[node name="Cube5" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.998982, 0, 0.0451015, 0, 1, 0, -0.0451015, 0, 0.998982, -74.7266, 1.90735e-06, 13.4885 )
+
+[node name="GoldenSeedPickup" parent="Solid" instance=ExtResource( 15 )]
+transform = Transform( 0.740476, 0, 0.672082, 0, 1, 0, -0.672082, 0, 0.740476, -158.94, 29.8203, -37.756 )
+
+[node name="Cube18" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 2.86283, 0, 2.5984, 0, 3.8662, 0, -2.5984, 0, 2.86283, -158.94, -2.73342e-06, -37.756 )
+
+[node name="Cube19" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 2.86283, 0, 2.5984, 0, 3.8662, 0, -2.5984, 0, 2.86283, -135.793, -2.73342e-06, -57.6184 )
+
+[node name="Cube20" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 3.07456, 0, 2.34405, 0, 3.8662, 0, -2.34405, 0, 3.07456, -112.653, 4.64077e-06, -77.9178 )
+
+[node name="Cube30" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 3.6817, 0, -1.18008, 0, 3.8662, 0, 1.18008, 0, 3.6817, 35.0232, -2.73342e-06, -120.521 )
+
+[node name="Cube31" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 3.6817, 0, -1.18008, 0, 3.8662, 0, 1.18008, 0, 3.6817, 63.7977, -2.73342e-06, -110.407 )
+
+[node name="Cube32" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 3.56729, 0, -1.49062, 0, 3.8662, 0, 1.49062, 0, 3.56729, 92.9476, 4.64077e-06, -100.516 )
+
+[node name="Cube21" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 3.59021, 0, 1.43453, 0, 3.8662, 0, -1.43453, 0, 3.59021, -88.8437, 4.64077e-06, -100.193 )
+
+[node name="Cube6" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.619875, 0, -0.784701, 0, 1, 0, 0.784701, 0, 0.619875, 42.9736, 0, -8.74567 )
+
+[node name="Cube7" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.619875, 0, -0.784701, 0, 1, 0, 0.784701, 0, 0.619875, 37.2161, 0, -15.6957 )
+
+[node name="Cube8" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, 35.797, 0, -3.46274 )
+
+[node name="Cube9" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, 30.4809, 0, -10.7559 )
+
+[node name="Cube33" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -70.0747, -4.77896, -86.9472 )
+
+[node name="NoFireZone" type="Area" parent="Solid/Cube33"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 9.91811, 0 )
+monitoring = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Solid/Cube33/NoFireZone"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.606087, 0.471827, 3.5517 )
+shape = SubResource( 8 )
+
+[node name="Cube34" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -77.2692, -0.376125, -83.4285 )
+
+[node name="Cube36" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -92.9547, 6.51314, -69.828 )
+
+[node name="Cube37" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -100.329, 9.43596, -63.7563 )
+
+[node name="Cube38" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -108.352, 12.2007, -57.9212 )
+
+[node name="Cube39" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.684979, 0, -0.728562, 0, 1, 0, 0.728562, 0, 0.684979, -115.988, 15.1121, -50.3291 )
+
+[node name="Cube40" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.684979, 0, -0.728562, 0, 1, 0, 0.728562, 0, 0.684979, -124.362, 18.4083, -43.0675 )
+
+[node name="Cube35" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.356151, 0, -0.934428, 0, 1, 0, 0.934428, 0, 0.356151, -87.4695, 3.00642, -80.5867 )
+
+[node name="Cube10" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.612273, 0, -0.790647, 0, 1, 0, 0.790647, 0, 0.612273, 58.275, 0, -18.686 )
+
+[node name="Cube11" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.612273, 0, -0.790647, 0, 1, 0, 0.790647, 0, 0.612273, 52.5849, 0, -25.6912 )
+
+[node name="Cube12" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.562141, 0, -0.827041, 0, 1, 0, 0.827041, 0, 0.562141, 51.0478, 0, -13.4725 )
+
+[node name="Cube13" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.562141, 0, -0.827041, 0, 1, 0, 0.827041, 0, 0.562141, 45.8024, 0, -20.8167 )
+
+[node name="Cube14" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.493972, 0, -0.869478, 0, 1, 0, 0.869478, 0, 0.493972, 56.9867, 7.74859, -17.8876 )
+
+[node name="Cube15" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.584009, 0, -0.811747, 0, 1, 0, 0.811747, 0, 0.584009, 51.8693, 7.79362, -24.9553 )
+
+[node name="Cube16" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.562141, 0, -0.827041, 0, 1, 0, 0.827041, 0, 0.562141, 50.1207, 7.79362, -13.4581 )
+
+[node name="Cube22" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.738185, 0, -0.674599, 0, 1, 0, 0.674599, 0, -0.738185, 119.986, 0, -55.4958 )
+
+[node name="Cube23" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.778539, 0, -0.627596, 0, 1, 0, 0.627596, 0, -0.778539, 114.201, 0, -62.2747 )
+
+[node name="Cube24" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.826384, 0, -0.563108, 0, 1, 0, 0.563108, 0, -0.826384, 119.085, 7.74859, -56.7148 )
+
+[node name="Cube25" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.778539, 0, -0.627596, 0, 1, 0, 0.627596, 0, -0.778539, 114.112, 7.79362, -63.1975 )
+
+[node name="Cube26" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.906397, 0, -0.422429, 0, 1, 0, 0.422429, 0, -0.906397, 109.718, -7.62939e-06, -70.1035 )
+
+[node name="Cube27" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.906042, 0, -0.423187, 0, 1, 0, 0.423187, 0, -0.906042, 106.259, -7.62939e-06, -78.2989 )
+
+[node name="Cube28" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.957138, 0, -0.289633, 0, 1, 0, 0.289633, 0, -0.957138, 109.224, 7.74858, -71.5363 )
+
+[node name="Cube29" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( -0.906042, 0, -0.423187, 0, 1, 0, 0.423187, 0, -0.906042, 106.393, 7.79361, -79.2165 )
+
+[node name="Cube17" parent="Solid" instance=ExtResource( 7 )]
+transform = Transform( 0.562141, 0, -0.827041, 0, 1, 0, 0.827041, 0, 0.562141, 44.6722, 7.79362, -20.1355 )
+
+[node name="Ramp" parent="Solid" instance=ExtResource( 11 )]
+transform = Transform( 0.792577, 0, 0.609772, 0, 1, 0, -0.609772, 0, 0.792577, 17.7674, 0, 0 )
+
+[node name="Ramp2" parent="Solid" instance=ExtResource( 11 )]
+transform = Transform( 0.792577, 0, 0.609772, 0, 1, 0, -0.609772, 0, 0.792577, 22.7514, 0, 5.92493 )
+
+[node name="Ramp3" parent="Solid" instance=ExtResource( 11 )]
+transform = Transform( 0.792577, 0, 0.609772, 0, 1, 0, -0.609772, 0, 0.792577, 33.0141, 7.76415, -12.2012 )
+
+[node name="Ramp4" parent="Solid" instance=ExtResource( 11 )]
+transform = Transform( 0.792577, 0, 0.609772, 0, 1, 0, -0.609772, 0, 0.792577, 38.3286, 7.66834, -6.05081 )
+
+[node name="NoFireZone" type="Area" parent="Solid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0656, 0, 15.3643 )
+monitoring = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Solid/NoFireZone"]
+shape = SubResource( 1 )
+
+[node name="NoFireZone3" type="Area" parent="Solid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.0356, 0, 34.031 )
+monitoring = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Solid/NoFireZone3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535721, 1.90735e-06, 1.96947 )
+shape = SubResource( 3 )
+
+[node name="NoFireZone2" type="Area" parent="Solid"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0739, 0, 15.3643 )
+monitoring = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Solid/NoFireZone2"]
+shape = SubResource( 2 )
+
+[node name="ViewportContainer" parent="." instance=ExtResource( 12 )]
+
+[node name="Thingies" type="Spatial" parent="."]
+
+[node name="EmptySpot" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( -0.456896, 0, -0.88952, 0, 1, 0, 0.88952, 0, -0.456896, 57.6895, 15.5336, -19.3465 )
+
+[node name="EmptySpot2" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 0.858996, 0, 0.511983, 0, 1, 0, -0.511983, 0, 0.858996, 51.7648, 15.5336, -25.0121 )
+
+[node name="EmptySpot3" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( -0.265724, 0, -0.964049, 0, 1, 0, 0.964049, 0, -0.265724, 44.6693, 15.6044, -19.2819 )
+
+[node name="EmptySpot4" parent="Thingies" instance=ExtResource( 5 )]
+
+[node name="EmptySpot5" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5448, 0, -11.6056 )
+
+[node name="EmptySpot6" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0447, -3.8147e-06, 66.2123 )
+
+[node name="EmptySpot7" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.0649, -3.8147e-06, -16.6112 )
+
+[node name="EmptySpot10" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.2539, -3.8147e-06, 64.1579 )
+
+[node name="EmptySpot8" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.2768, -3.8147e-06, -75.621 )
+
+[node name="EmptySpot11" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 95.9147, -3.8147e-06, -38.8503 )
+
+[node name="EmptySpot9" parent="Thingies" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5404, -3.8147e-06, -1.9841 )
+
+[node name="Drop" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -83.5165, 0.776318, 37.2661 )
+
+[node name="Drop5" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -36.8538, 0.776322, -102.941 )
+
+[node name="Drop6" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 105.409, 0.776322, -52.9335 )
+
+[node name="Drop7" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 95.9607, 0.776314, -50.1195 )
+
+[node name="Drop13" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -122.621, 0.77631, -35.273 )
+
+[node name="Drop8" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 99.4019, 0.776322, -56.6771 )
+
+[node name="Drop9" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 100.712, 0.776318, -65.9643 )
+
+[node name="Drop10" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 93.6676, 0.776318, -59.5626 )
+
+[node name="Drop11" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 95.4014, 0.776314, -70.7163 )
+
+[node name="Drop12" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 51.1305, 16.0959, -14.3076 )
+
+[node name="Drop2" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( 0.149374, 0.253931, 0.955618, -0.86193, 0.507027, 0, -0.484524, -0.823676, 0.294607, -92.2076, 0.776318, 38.1733 )
+
+[node name="Drop3" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( -0.264544, -0.449716, 0.853095, -0.86193, 0.507027, 0, -0.432543, -0.735309, -0.521754, -93.4397, 0.776318, 31.874 )
+
+[node name="Drop4" parent="Thingies" instance=ExtResource( 13 )]
+transform = Transform( -0.264544, -0.449716, 0.853095, -0.86193, 0.507027, 0, -0.432543, -0.735309, -0.521754, -85.4454, 0.776318, 44.2287 )
+
+[node name="OuterPerimiterLimiter" type="Area" parent="Thingies"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.741, 0, 70.3108 )
+monitoring = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.887606, 0, 0.460603, 0, 1, 0, -0.460603, 0, 0.887606, -10.0689, 0, 10.147 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.887606, 0, 0.460603, 0, 1, 0, -0.460603, 0, 0.887606, 51.7372, -7.62939e-06, 16.1857 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.887606, 0, 0.460603, 0, 1, 0, -0.460603, 0, 0.887606, 98.8394, -7.62939e-06, -2.18869 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.990724, 0, 0.135888, 0, 1, 0, -0.135888, 0, 0.990724, -80.4688, 0, 33.7186 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.948573, 0, -0.31656, 0, 1, 0, 0.31656, 0, 0.948573, -156.042, 0, 24.7199 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.998257, 0, 0.0590102, 0, 1, 0, -0.0590102, 0, 0.998257, -76.7033, 0, -214.693 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.998257, 0, 0.0590102, 0, 1, 0, -0.0590102, 0, 0.998257, -11.1693, 0, -220.859 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.974847, 0, 0.222876, 0, 1, 0, -0.222876, 0, 0.974847, -140.317, 1.52588e-05, -208.469 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.974847, 0, 0.222876, 0, 1, 0, -0.222876, 0, 0.974847, -140.317, 1.52588e-05, -208.469 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.697002, 0, 0.717069, 0, 1, 0, -0.717069, 0, 0.697002, -176.772, 1.52588e-05, -173.032 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.898541, 0, -0.438889, 0, 1, 0, 0.438889, 0, 0.898541, 51.0791, 1.52588e-05, -217.624 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.810911, 0, -0.58517, 0, 1, 0, 0.58517, 0, 0.810911, 111.1, 1.52588e-05, -189.272 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( -0.263553, 0, -0.964645, 0, 1, 0, 0.964645, 0, -0.263553, 154.093, 1.52588e-05, -49.0115 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
+transform = Transform( 0.00724307, 0, -0.999974, 0, 1, 0, 0.999974, 0, 0.00724307, -210.172, 0, -38.6461 )
+shape = SubResource( 7 )
+
+[node name="Edges" type="Spatial" parent="."]
+
+[node name="red" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 33.0557, 0.0558834, 30.3218 )
+
+[node name="fire51" parent="Edges/red" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="big_red" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 5.89305, 0, 3.2518, 0, 4.0976, 0, -2.08257, 0, 3.77413, 75.5485, -1.60264, 45.1399 )
+
+[node name="Spatial" type="Spatial" parent="Edges/big_red"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="fire52" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.191156, 0, -0.1647, 0, 0.358623, 0, 0.10548, 0, 0.298477, -5.06485, 0.497681, -4.06684 )
+extenguishable = false
+
+[node name="fire53" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -2.61807, 0.497681, -5.27549 )
+extenguishable = false
+
+[node name="fire64" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -6.82172, 0.497681, -2.95772 )
+extenguishable = false
+
+[node name="fire65" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -2.7595, 0.497681, -3.69429 )
+extenguishable = false
+
+[node name="fire66" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -0.349287, 0.497681, -3.68922 )
+extenguishable = false
+
+[node name="fire67" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, 0.964099, 0.497685, 1.00372 )
+extenguishable = false
+
+[node name="fire68" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, 6.02746, 0.497685, -0.176735 )
+extenguishable = false
+
+[node name="fire69" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 8.97348, 0.497685, -3.05546 )
+extenguishable = false
+
+[node name="fire70" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 3.38573, 0.497685, -0.309636 )
+extenguishable = false
+
+[node name="fire71" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, -0.372735, 0.497685, -0.263872 )
+extenguishable = false
+
+[node name="fire72" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, -3.68288, 0.497685, -1.03057 )
+extenguishable = false
+
+[node name="fire73" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 5.75335, 0.497685, -2.44768 )
+extenguishable = false
+
+[node name="fire74" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 15.7482, 0.497685, -12.5652 )
+extenguishable = false
+
+[node name="fire54" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -6.59672, 0.497681, -2.15543 )
+spreads = false
+extenguishable = false
+
+[node name="fire55" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -1.00799, 0.497681, -4.60477 )
+spreads = false
+extenguishable = false
+
+[node name="fire56" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, 0.752128, 0.497681, -4.18256 )
+spreads = false
+extenguishable = false
+
+[node name="fire57" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -4.69402, 0.497681, -1.79252 )
+spreads = false
+extenguishable = false
+
+[node name="fire58" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717802, 0, 0.203116, -1.10648, 0.497681, -1.97864 )
+spreads = false
+extenguishable = false
+
+[node name="fire59" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, -5.01317, 0.497681, 0.996546 )
+spreads = false
+extenguishable = false
+
+[node name="fire60" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, -2.71064, 0.497681, 0.396898 )
+spreads = false
+extenguishable = false
+
+[node name="fire61" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 2.23704, 0.497681, -1.8879 )
+spreads = false
+extenguishable = false
+
+[node name="fire62" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 1.85605, 0.497681, -3.73838 )
+spreads = false
+extenguishable = false
+
+[node name="fire63" parent="Edges/big_red/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.130083, 0, -0.11208, 0, 0.244045, 0, 0.0717803, 0, 0.203116, 3.7154, 0.497681, -3.85 )
+spreads = false
+extenguishable = false
+
+[node name="big_red2" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 1.16764, 0, -4.15718, 0, 4.0976, 0, 5.0214, 0, 2.71182, 118.902, 0.0558834, -9.37024 )
+
+[node name="Spatial" type="Spatial" parent="Edges/big_red2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="fire64" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, 1.09851, 0.0929261, 7.00157 )
+spreads = false
+extenguishable = false
+
+[node name="fire65" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -0.440694, 0.301772, 6.36454 )
+spreads = false
+extenguishable = false
+
+[node name="fire66" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -2.14049, 0.301772, 5.95997 )
+spreads = false
+extenguishable = false
+
+[node name="fire67" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -6.23001, 0.301772, -0.959785 )
+spreads = false
+extenguishable = false
+
+[node name="fire68" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -5.08112, 0.301772, 1.37135 )
+spreads = false
+extenguishable = false
+
+[node name="fire69" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -3.08913, 0.301772, 5.05796 )
+spreads = false
+extenguishable = false
+
+[node name="fire70" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -3.82101, 0.301772, 4.10504 )
+spreads = false
+extenguishable = false
+
+[node name="fire71" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -4.55917, 0.301772, 2.96036 )
+spreads = false
+extenguishable = false
+
+[node name="fire72" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -5.95043, 0.301772, -2.5792 )
+spreads = false
+extenguishable = false
+
+[node name="fire73" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -5.26268, 0.301772, -0.0601883 )
+spreads = false
+extenguishable = false
+
+[node name="fire74" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -0.225013, 0.301772, -2.01734 )
+spreads = false
+extenguishable = false
+
+[node name="fire75" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -2.695, 0.301772, -0.85313 )
+spreads = false
+extenguishable = false
+
+[node name="fire76" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -1.61338, 0.301772, 2.48296 )
+spreads = false
+extenguishable = false
+
+[node name="fire77" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, 0.146156, 0.301772, 0.331139 )
+spreads = false
+extenguishable = false
+
+[node name="fire78" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, 1.8785, 0.301772, 3.79444 )
+spreads = false
+extenguishable = false
+
+[node name="fire79" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, 0.659594, 1.98538, 2.74654 )
+spreads = false
+extenguishable = false
+
+[node name="fire80" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -0.458638, 2.94382, 1.91905 )
+spreads = false
+extenguishable = false
+
+[node name="fire81" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, -2.36016, 2.94382, 1.62455 )
+spreads = false
+extenguishable = false
+
+[node name="fire82" parent="Edges/big_red2/Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.112798, 0, 0.172918, 0, 0.244045, 0, -0.208866, 0, 0.0485679, 0.399201, 3.95837, 1.60206 )
+spreads = false
+extenguishable = false
+
+[node name="red2" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 21.2511, 0.0558834, -71.2007 )
+
+[node name="fire51" parent="Edges/red2" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red3" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -122.5, 0.0558834, 32.2415 )
+
+[node name="fire51" parent="Edges/red3" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red9" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -132.642, 0.0558796, -20.1984 )
+
+[node name="fire51" parent="Edges/red9" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="hugeFire" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -46.131, -0.747921, 119.52 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire2" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -124.922, -0.747921, 110.091 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire3" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 53.6407, -0.747921, 95.3827 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire4" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 125.027, -0.747921, -83.7785 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire5" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 128.758, -0.747921, -52.82 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire6" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 76.387, -0.747921, 66.6523 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire7" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 140.268, -0.747921, -14.0891 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire8" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 101.766, -0.747921, 47.1493 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire9" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 11.8318, -0.747921, 90.6266 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire10" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -93.1306, -0.747921, 110.103 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire11" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -183.492, -0.747921, -15.5934 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire12" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -156.513, -0.747921, 74.9211 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire13" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -72.1766, -0.747921, -129.325 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire14" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -56.6445, -0.747921, -129.252 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire15" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -33.2067, -0.747921, -126.611 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire16" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -12.2358, -0.747921, -129.029 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire17" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 5.83818, -0.747921, -129.092 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire18" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 15.9732, -0.747951, -145.917 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire19" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, -89.876, -0.747951, -130.69 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire20" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 19.8117, 0, 0, 0, 19.8117, 0, 0, 0, 19.8117, -276.906, 15.3488, -250.603 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire21" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 19.8117, 0, 0, 0, 19.8117, 0, 0, 0, 19.8117, -356.178, -10.1785, -198.948 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire22" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 6.38493, 0, 0, 0, 6.38493, 0, 0, 0, 6.38493, 172.437, -10.1785, 468.942 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire23" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 6.38493, 0, 0, 0, 6.38493, 0, 0, 0, 6.38493, 309.517, -10.1785, 254.355 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire24" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 6.38493, 0, 0, 0, 6.38493, 0, 0, 0, 6.38493, -172.522, -10.1785, 435.746 )
+spreads = false
+extenguishable = false
+
+[node name="hugeFire25" parent="Edges" instance=ExtResource( 1 )]
+transform = Transform( 6.38493, 0, 0, 0, 6.38493, 0, 0, 0, 6.38493, 638.361, -10.1785, -152.625 )
+spreads = false
+extenguishable = false
+
+[node name="red10" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -156.286, 0.0558796, 6.76812 )
+
+[node name="fire51" parent="Edges/red10" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red11" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -138.267, 0.0558758, 45.4205 )
+
+[node name="fire51" parent="Edges/red11" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red4" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.46665, 0.0558834, -40.4254 )
+
+[node name="fire51" parent="Edges/red4" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red5" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -87.3715, 0.0558834, -67.9013 )
+
+[node name="fire51" parent="Edges/red5" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red6" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -76.7299, 0.0558834, -67.1553 )
+
+[node name="fire51" parent="Edges/red6" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red7" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -67.1763, 0.0558834, -69.4743 )
+
+[node name="fire51" parent="Edges/red7" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[node name="red8" parent="Edges" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -57.963, 0.0558834, -70.6506 )
+
+[node name="fire51" parent="Edges/red8" instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.702881, -1.6076, 0.152073 )
+extenguishable = false
+
+[editable path="ViewportContainer"]

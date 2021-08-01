@@ -1,6 +1,12 @@
 extends KinematicBody
 
 export (PackedScene) var drop_projectile:PackedScene = null
+export (PackedScene) var golden_drop_projectile:PackedScene = null
+
+export var starting_drops:int = 0
+
+var water_plant_packed = preload("res://scenes/water_plant.tscn")
+var golden_plant_packed = preload("res://scenes/goldenPlant.tscn")
 
 onready var camera = $Camera
 
@@ -8,6 +14,8 @@ var gravity = -30
 var max_speed = 11
 var move_strength = 3
 var mouse_sensitivity = 0.002  # radians/pixel
+
+var jump_strength = 15
 
 var movement_drag = 1.1
 
@@ -17,11 +25,18 @@ var throw_force = 1500
 var stunned = false
 var velocity = Vector3()
 
-var items = {"Drop": 9}
+var items = {"GoldenDrop": 6, "GoldenSeed": 2}
+
+var current_item = ""
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if starting_drops > 0:
+		items["Drop"] = starting_drops
+		current_item = "Drop"
+		update_displayed_item()
 
 func get_move_input():
 	var input_dir = Vector3()
@@ -63,16 +78,103 @@ func use_item(item_name):
 		return false
 	
 	items[item_name] -= 1
+	if items[item_name] == 0:
+		items.erase(item_name)
+		toggle_item()
 	return true
+
+func try_item(item_name):
+	if item_name == "Drop":
+		if not use_item("Drop"):
+			return
+		var projectile = drop_projectile.instance()
+		projectile.global_transform = camera.global_transform
+		projectile.add_central_force(projectile.transform.basis * Vector3.FORWARD * throw_force)
+		get_parent().add_child(projectile)
+	elif item_name == "GoldenDrop":
+		if not use_item("GoldenDrop"):
+			return
+		var projectile = golden_drop_projectile.instance()
+		projectile.global_transform = camera.global_transform
+		projectile.add_central_force(projectile.transform.basis * Vector3.FORWARD * throw_force)
+		get_parent().add_child(projectile)
+	elif item_name == "WaterSeed":
+		var areas = $PlantLooker.get_overlapping_areas()
+		if len(areas) < 1:
+			return
+		if not use_item("WaterSeed"):
+			return
+		
+		var seed_transform = areas[0].global_transform
+		areas[0].get_parent().queue_free()
+		
+		var new_plant = water_plant_packed.instance()
+		get_parent().add_child(new_plant)
+		new_plant.global_transform = seed_transform
+		new_plant.baby()
+	elif item_name == "GoldenSeed":
+		var areas = $PlantLooker.get_overlapping_areas()
+		if len(areas) < 1:
+			return
+		if not use_item("GoldenSeed"):
+			return
+		
+		var seed_transform = areas[0].global_transform
+		areas[0].get_parent().queue_free()
+		
+		var new_plant = golden_plant_packed.instance()
+		get_parent().add_child(new_plant)
+		new_plant.global_transform = seed_transform
+		new_plant.baby()
+
+func toggle_item():
+	if len(items) <= 0:
+		current_item = ""
+		update_displayed_item()
+		return
+		
+	var item_names = items.keys()
+	var index = item_names.find(current_item)
+	if index == -1:
+		index = 0
+	elif len(item_names) < 2 || index == len(item_names):
+		index = 0
+	else:
+		index += 1
+	
+	if index == len(item_names):
+		index = 0
+	
+	current_item = item_names[index]
+	update_displayed_item()
+
+func update_displayed_item():
+	var ItemBox = get_tree().get_nodes_in_group("InvSpot")
+	if len(ItemBox) < 1:
+		return
+	
+	var items = ItemBox[0].get_children()
+	for item in items:
+		if current_item == item.name:
+			item.visible = true
+		else:
+			item.visible = false
 
 func _process(delta):
 	if not stunned:
 		if Input.is_action_just_pressed("use_item"):
-			if use_item("Drop"):
-				var projectile = drop_projectile.instance()
-				projectile.global_transform = camera.global_transform
-				projectile.add_central_force(projectile.transform.basis * Vector3.FORWARD * throw_force)
-				get_parent().add_child(projectile)
+			try_item(current_item)
+		
+		if Input.is_action_just_pressed("jump"):
+			var bodies = $Feet.get_overlapping_bodies()
+			if len(bodies) > 0:
+				add_velocity_impulse(jump_strength, Vector3.UP)
+		
+		if Input.is_action_just_pressed("toggle_item"):
+			toggle_item()
+	
+	if Input.is_action_just_pressed("quit"):
+		get_tree().change_scene("res://scenes/Start.tscn")
 
 func abs_limited(max_val, val):
 	return max(min(val, max_val), -max_val)
@@ -103,5 +205,8 @@ func _on_PickupBox_area_entered(area):
 		items[item_name] += 1
 	else:
 		items[item_name] = 1
+		if current_item == "":
+			current_item = item_name
+			update_displayed_item()
 	
 	print_debug("You now have " + str(items[item_name]) + " " + item_name)

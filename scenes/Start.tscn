@@ -1,0 +1,244 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/water_plant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/models/wall.glb" type="PackedScene" id=3]
+[ext_resource path="res://assets/models/rock.glb" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/models/cube.glb" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Cube.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/GoldenSeedPickup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Start.gd" type="Script" id=9]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 9 )
+
+[node name="Floor" parent="." instance=ExtResource( 5 )]
+
+[node name="cube" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.792723, -0.0608424, -0.0313588, 0.0498503, 0.76298, -0.220163, 0.0469054, 0.217382, 0.763963, 0, 2.59079, 0 )
+
+[node name="rock" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.326207, 0, 0, 0, 0.321407, -0.0557536, 0, 0.0557536, 0.321407, 0, 14.6466, 2.7951 )
+
+[node name="Plant" parent="rock" instance=ExtResource( 2 )]
+transform = Transform( 1.67769, -0.0326892, -0.959505, 0.122753, 1.92329, 0.149109, 0.952182, -0.19035, 1.67137, 0, 0.843456, -0.146312 )
+start_baby = false
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.672341, 0.193514, -0.714499, 0, 0.965225, 0.26142, 0.740241, -0.175764, 0.648961, -1.77693, 19.9936, 9.93953 )
+far = 250.0
+
+[node name="wall" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.157624, 0.823704, -0.000860263, -0.742969, 0.177414, -0.208882, -0.642818, -0.00307713, 0.241215, -8.11277, 12.3253, -5.48986 )
+
+[node name="fire" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 51.9855, 1.90735e-06, -35.6997 )
+spreads = false
+extenguishable = false
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="fire2" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 47.0828, 1.90735e-06, -55.1828 )
+spreads = false
+extenguishable = false
+
+[node name="fire3" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 89.0058, 1.90735e-06, -41.8988 )
+spreads = false
+extenguishable = false
+
+[node name="fire4" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 79.0058, 1.90735e-06, -14.8988 )
+spreads = false
+extenguishable = false
+
+[node name="fire5" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 104.994, 1.90735e-06, -35.4539 )
+spreads = false
+extenguishable = false
+
+[node name="fire6" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 93.6131, 1.90735e-06, -59.0035 )
+spreads = false
+extenguishable = false
+
+[node name="fire7" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 2.24937, 0, 0, 0, 2.24937, 0, 0, 0, 2.24937, 57.0112, 0, -2.53881 )
+spreads = false
+extenguishable = false
+
+[node name="fire8" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 55.4008, 0, 11.3708 )
+spreads = false
+extenguishable = false
+
+[node name="fire9" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 81.5228, 0, 7.43824 )
+spreads = false
+extenguishable = false
+
+[node name="fire10" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 58.4685, 0, 21.0981 )
+spreads = false
+extenguishable = false
+
+[node name="fire11" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 38.4122, 0, 18.8961 )
+spreads = false
+extenguishable = false
+
+[node name="fire12" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 91.2966, -1.90735e-06, 22.4837 )
+spreads = false
+extenguishable = false
+
+[node name="fire13" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 52.7255, 0, 29.227 )
+spreads = false
+extenguishable = false
+
+[node name="fire14" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 22.627, 0, -56.1859 )
+spreads = false
+extenguishable = false
+
+[node name="fire15" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 36.7211, 1.90735e-06, -66.4738 )
+spreads = false
+extenguishable = false
+
+[node name="fire16" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 13.9914, 1.90735e-06, -32.9157 )
+spreads = false
+extenguishable = false
+
+[node name="fire22" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 3.43134, 1.90735e-06, -55.2455 )
+spreads = false
+extenguishable = false
+
+[node name="fire23" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, -3.81515, 3.8147e-06, -57.0017 )
+spreads = false
+extenguishable = false
+
+[node name="fire24" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, -9.06441, 3.8147e-06, -40.2051 )
+spreads = false
+extenguishable = false
+
+[node name="fire25" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 18.3585, 3.8147e-06, -75.7774 )
+spreads = false
+extenguishable = false
+
+[node name="fire26" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 8.74663, 3.8147e-06, -72.6988 )
+spreads = false
+extenguishable = false
+
+[node name="fire21" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 1.35518, 0, 0, 0, 1.35518, 0, 0, 0, 1.35518, 13.9914, 1.90735e-06, -32.9157 )
+spreads = false
+extenguishable = false
+
+[node name="fire17" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.686924, 0, 0, 0, 0.686924, 0, 0, 0, 0.686924, 12.6257, 1.90735e-06, -15.6284 )
+spreads = false
+extenguishable = false
+
+[node name="fire18" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.686924, 0, 0, 0, 0.686924, 0, 0, 0, 0.686924, 23.259, 13.4654, -18.0006 )
+spreads = false
+extenguishable = false
+
+[node name="fire19" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.686924, 0, 0, 0, 0.686924, 0, 0, 0, 0.686924, 16.5888, 13.4654, -20.8033 )
+spreads = false
+extenguishable = false
+
+[node name="fire20" parent="Spatial" instance=ExtResource( 1 )]
+transform = Transform( 0.686924, 0, 0, 0, 0.686924, 0, 0, 0, 0.686924, 23.3592, 13.4654, 7.86642 )
+spreads = false
+extenguishable = false
+
+[node name="fire22" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3.77694, 0, 0, 0, 3.77694, 0, 0, 0, 3.77694, 1.26547, 13.4654, -48.4175 )
+spreads = false
+extenguishable = false
+
+[node name="fire23" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3.77694, 0, 0, 0, 3.77694, 0, 0, 0, 3.77694, 159.309, 13.4654, 37.9065 )
+spreads = false
+extenguishable = false
+
+[node name="fire25" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.56211, 0, 0, 0, 2.56211, 0, 0, 0, 2.56211, 119.68, 13.4654, -160.351 )
+spreads = false
+extenguishable = false
+
+[node name="fire28" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.56211, 0, 0, 0, 2.56211, 0, 0, 0, 2.56211, 25.1898, 13.4654, -123.119 )
+spreads = false
+extenguishable = false
+
+[node name="fire29" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.56211, 0, 0, 0, 2.56211, 0, 0, 0, 2.56211, 44.5725, 13.4654, -121.121 )
+spreads = false
+extenguishable = false
+
+[node name="fire30" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.56211, 0, 0, 0, 2.56211, 0, 0, 0, 2.56211, 126.342, 13.4654, -31.912 )
+spreads = false
+extenguishable = false
+
+[node name="fire26" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.48583, 0, 0, 0, 2.48583, 0, 0, 0, 2.48583, 118.59, 13.4654, -112.445 )
+spreads = false
+extenguishable = false
+
+[node name="fire27" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2.52347, 0, 0, 0, 2.52347, 0, 0, 0, 2.52347, 151.982, 29.2353, -141.004 )
+spreads = false
+extenguishable = false
+
+[node name="fire24" parent="." instance=ExtResource( 1 )]
+transform = Transform( 12.9978, 0, 0, 0, 12.9978, 0, 0, 0, 12.9978, 199.231, 13.4654, -61.9987 )
+spreads = false
+extenguishable = false
+
+[node name="wall2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.17346, 0, -2.98477, -0.160372, 2.98549, -0.00932004, 2.98046, 0.160643, 0.173209, 149.368, 0, -149.531 )
+
+[node name="rocks" type="Spatial" parent="."]
+
+[node name="rock" parent="rocks" instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.4848, 0, -17.4883 )
+
+[node name="rock2" parent="rocks" instance=ExtResource( 4 )]
+transform = Transform( 0.317864, 0, 0.385957, 0, 0.5, 0, -0.385957, 0, 0.317864, 37.2696, 0, -12.9122 )
+
+[node name="rock3" parent="rocks" instance=ExtResource( 4 )]
+transform = Transform( 0.317864, 0, 0.385957, 0, 0.5, 0, -0.385957, 0, 0.317864, 66.0151, 0, -24.8045 )
+
+[node name="GoldenSeedPickup" parent="rocks/rock3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17711, 0 )
+
+[node name="rock4" parent="rocks" instance=ExtResource( 4 )]
+transform = Transform( -0.415798, 0, 0.277691, 0, 0.5, 0, -0.277691, 0, -0.415798, 53.7328, 0, -14.1915 )
+
+[node name="Cube" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.882767, 0, -0.469811, 0, 1, 0, 0.469811, 0, 0.882767, 14.31, -0.0391769, -56.347 )
+
+[node name="Cube2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.0416902, 0, -0.590569, 0, 0.592039, 0, 0.590569, 0, -0.0416902, 5.7214, -0.0391693, -47.0195 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.00784314, 0.00784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

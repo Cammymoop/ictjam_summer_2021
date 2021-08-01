@@ -2,4 +2,4 @@ extends Area
 
 signal on_pickup
 
-export var item_name = "B"
+export var item_name = "Drop"

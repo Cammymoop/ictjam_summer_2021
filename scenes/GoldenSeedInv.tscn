@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/golden_seed.glb" type="PackedScene" id=1]
+
+[node name="GoldenSeed" type="Spatial"]
+
+[node name="golden_seed" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.0145, 0.674635, -1.18474, 0.725623, 1.5174, 0.24271, 1.15421, -0.360977, -1.19392, 0, 0, 0 )

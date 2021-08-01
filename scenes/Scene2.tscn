@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://scenes/water_plant.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/EmptySpot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/InvDisplay.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/SeedPickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/models/rock.glb" type="PackedScene" id=12]
 
 [node name="Spatial" type="Spatial"]
 
@@ -35,6 +38,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3946, 0, 12.6561 )
 [node name="Player" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 4 )]
 transform = Transform( 0.697765, 0, -0.716326, 0, 1, 0, 0.716326, 0, 0.697765, -16.9528, 2.9083, 18.1344 )
 
+[node name="WaterSeedPickup" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.7319 )
+
 [node name="fires" type="Node" parent="."]
 script = ExtResource( 3 )
 
@@ -42,6 +48,9 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8023, 6.23073, -2.32314 )
 
 [node name="Solid" type="Spatial" parent="."]
+
+[node name="rock" parent="Solid" instance=ExtResource( 12 )]
+transform = Transform( 1.31702, 0, 0, 0, 1.31702, 0, 0, 0, 1.31702, -23.8011, -0.613708, 14.9927 )
 
 [node name="Floor" parent="Solid" instance=ExtResource( 8 )]
 
@@ -64,3 +73,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -89.9218 )
 transform = Transform( 0.792577, 0, 0.609772, 0, 1, 0, -0.609772, 0, 0.792577, 17.7674, 0, 0 )
 
 [node name="EmptySpot" parent="Solid" instance=ExtResource( 9 )]
+
+[node name="ViewportContainer" parent="." instance=ExtResource( 10 )]

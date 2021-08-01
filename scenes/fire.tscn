@@ -96,7 +96,7 @@ draw_pass_1 = SubResource( 12 )
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78167, 0 )
 collision_layer = 16
-collision_mask = 16
+collision_mask = 4096
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
@@ -119,6 +119,7 @@ collision_mask = 48
 [node name="CollisionShape" type="CollisionShape" parent="Checker"]
 shape = SubResource( 14 )
 
-[connection signal="put_out" from="Area" to="." method="_on_Area_put_out"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[connection signal="watered" from="Area" to="." method="_on_Area_watered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="SpreadTimer" to="." method="_on_SpreadTimer_timeout"]

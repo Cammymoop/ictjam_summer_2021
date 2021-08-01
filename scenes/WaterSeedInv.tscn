@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/seed.glb" type="PackedScene" id=1]
+
+[node name="WaterSeed" type="Spatial"]
+
+[node name="seed" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.18416, 0.653373, 1.19149, -0.327785, 1.18824, -0.600926, -1.31875, -0.204104, 0.315753, 0, 0, 0 )

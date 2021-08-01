@@ -3,27 +3,43 @@ extends Spatial
 onready var whole_model = $Model
 onready var drop_model = $Model/Drop
 
-var grow_speed = 0.5
-var drop_grow_speed = 0.18
+export var start_baby:bool = true
+
+var dirt = preload("res://scenes/EmptySpot.tscn")
+
+var baby = false
+export var grow_speed = 0.01
+export var drop_grow_speed = 0.18
 var growth = 0
 var growing = false
 
 var growing_drop = false
 
 var drop_ready = true
+var seed_available = false
+var first_seed = false
 
 var target_scale = 1.0
 
 func _ready():
 	target_scale = whole_model.scale.x
-	baby()
+	if start_baby:
+		baby()
+	else:
+		$GetDrop.monitorable = true
+		drop_ready = true
 
 func baby():
+	baby = true
 	drop_model.visible = false
 	drop_ready = false
-	whole_model.scale = Vector3.ONE * 0.01
-	growing = true
+	whole_model.scale = Vector3.ONE * 0.001
+	growing = false
 	growth = 0
+
+func watered():
+	growing = true
+	baby = false
 
 func grow_drop():
 	drop_model.scale = Vector3.ZERO
@@ -34,6 +50,9 @@ func grow_drop():
 func take_drop():
 	drop_ready = false
 	$GetDrop.monitorable = false
+	if not first_seed:
+		first_seed = true
+		$SeedTimer.start()
 	grow_drop()
 
 func _process(delta):
@@ -60,3 +79,31 @@ func _process(delta):
 
 func _on_GetDrop_on_pickup():
 	take_drop()
+
+
+func _on_StaticBody_watered():
+	if baby:
+		watered()
+
+func _on_StaticBody_fire():
+	# Oh no, burning up for you
+	var new_dirt = dirt.instance()
+	get_parent().add_child(new_dirt)
+	new_dirt.global_transform = global_transform
+	
+	queue_free()
+
+
+func _on_GetDrop2_on_pickup():
+	$Seed.visible = false
+	seed_available = false
+	$GetDrop2.monitorable = false
+	$SeedTimer.wait_time *= 2
+	$SeedTimer.start()
+
+
+func _on_SeedTimer_timeout():
+	$Seed.visible = true
+	seed_available = true
+	yield(get_tree(), "idle_frame")
+	$GetDrop2.monitorable = true

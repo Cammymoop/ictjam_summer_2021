@@ -1,13 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/models/PalleteSolid.material" type="Material" id=1]
-[ext_resource path="res://scenes/DropProjectile.gd" type="Script" id=2]
-[ext_resource path="res://particles/WaterDrops.tres" type="Material" id=3]
+[ext_resource path="res://scenes/Pickup.gd" type="Script" id=1]
+[ext_resource path="res://scenes/JustPickup.gd" type="Script" id=2]
+[ext_resource path="res://assets/models/PalleteSolid.material" type="Material" id=3]
 
-[sub_resource type="SphereShape" id=1]
-radius = 0.522894
-
-[sub_resource type="ArrayMesh" id=2]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "Icosphere"
 surfaces/0 = {
 "aabb": AABB( -0.951058, -1, -1, 1.90212, 2, 2 ),
@@ -16,13 +13,13 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 240,
-"material": ExtResource( 1 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 240
 }
 
-[sub_resource type="ArrayMesh" id=3]
+[sub_resource type="ArrayMesh" id=2]
 resource_name = "Plane003"
 surfaces/0 = {
 "aabb": AABB( -1.29116, 0, -0.0407404, 1.36855, 0.101684, 1.36856 ),
@@ -31,85 +28,47 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 6,
-"material": ExtResource( 1 ),
+"material": ExtResource( 3 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
 }
 
-[sub_resource type="SpatialMaterial" id=4]
-flags_unshaded = true
-vertex_color_use_as_albedo = true
+[sub_resource type="SphereShape" id=3]
+radius = 3.13259
 
-[sub_resource type="SphereMesh" id=5]
-material = SubResource( 4 )
-radius = 0.2
-height = 0.4
-radial_segments = 10
-rings = 5
-
-[sub_resource type="SphereShape" id=6]
-radius = 6.77631
-
-[node name="DropProjectile" type="RigidBody"]
-collision_layer = 0
-collision_mask = 2
-contacts_reported = 1
-contact_monitor = true
+[node name="Drop" type="Spatial"]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, 0.413458, 1.19016, 0 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-shape = SubResource( 1 )
-
-[node name="Projectile" type="Spatial" parent="."]
-
-[node name="Drop" type="Spatial" parent="Projectile"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.516921, 0 )
-
-[node name="Icosphere" type="MeshInstance" parent="Projectile/Drop"]
+[node name="Icosphere" type="MeshInstance" parent="."]
 transform = Transform( 0.893706, 0.44181, -0.0780567, -0.423846, 0.774368, -0.469796, -0.147116, 0.452944, 0.879317, -0.0198343, -0.984163, -0.176151 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Plane003" type="MeshInstance" parent="."]
+transform = Transform( 0.562336, 0.0175015, -0.180053, 0.0436732, -0.58369, 0.0796629, -0.175551, -0.0891472, -0.55694, 0.0124516, 0.0417399, -0.0726163 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Plane003" type="MeshInstance" parent="Projectile/Drop"]
-transform = Transform( 0.562336, 0.0175015, -0.180053, 0.0436732, -0.58369, 0.0796629, -0.175551, -0.0891472, -0.55694, 0.0124516, 0.0417399, -0.0726163 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[node name="Plane004" type="MeshInstance" parent="Projectile/Drop"]
+[node name="Plane004" type="MeshInstance" parent="."]
 transform = Transform( -0.225671, -0.178243, 0.60287, 0.0826549, -0.643388, -0.159283, 0.623211, 0.0207872, 0.239431, 0.0291171, 0.0379715, -0.078848 )
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Plane005" type="MeshInstance" parent="Projectile/Drop"]
+[node name="Plane005" type="MeshInstance" parent="."]
 transform = Transform( -0.372186, 0.112311, -0.416285, 0.0389482, -0.538918, -0.18022, -0.429406, -0.146227, 0.344466, 0.0291171, 0.0379715, -0.078848 )
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Particles" type="Particles" parent="."]
-emitting = false
-amount = 120
-lifetime = 1.3
-one_shot = true
-explosiveness = 0.6
-local_coords = false
-process_material = ExtResource( 3 )
-draw_pass_1 = SubResource( 5 )
-
-[node name="DeathTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
-[node name="Detector" type="Area" parent="."]
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, -7.45058e-09, 0, 5.58794e-09, 1, 0, 0, -1.49012e-07, 1, -0.0838439, -0.691426, 0.0252234 )
 monitoring = false
-monitorable = false
-collision_layer = 0
-collision_mask = 4112
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Detector"]
-shape = SubResource( 6 )
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
 
-[connection signal="body_entered" from="." to="." method="_on_DropProjectile_body_entered"]
-[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
-[connection signal="area_entered" from="Detector" to="." method="_on_Detector_area_entered"]
-[connection signal="body_entered" from="Detector" to="." method="_on_Detector_body_entered"]
+[connection signal="on_pickup" from="Area" to="." method="_on_Area_on_pickup"]

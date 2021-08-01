@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="Drop" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2366, 10.851, 1.94117 )

@@ -1,6 +1,7 @@
 extends Spatial
 
 export var spreads:bool = true
+export var extenguishable = true
 
 var floor_elevate = -1.0
 
@@ -22,7 +23,6 @@ func _ready():
 		player_ref = false
 	
 	if from_spread:
-		print_debug("spreaded")
 		check_redundant()
 	else:
 		$Checker.queue_free()
@@ -50,6 +50,7 @@ func spread():
 	var new_fire = fire_scene.instance()
 	new_fire.from_spread = true
 	get_parent().add_child(new_fire)
+	new_fire.scale = scale
 	new_fire.global_transform.origin = global_transform.origin + new_offset
 	
 	#Adjust to floor
@@ -59,7 +60,7 @@ func spread():
 
 func find_floor(position) -> float:
 	var state = PhysicsServer.space_get_direct_state(get_world().space)
-	var intersection = state.intersect_ray(position + (Vector3.UP * 8), position - (Vector3.UP * 9), [], 2)
+	var intersection = state.intersect_ray(position + (Vector3.UP * 2), position - (Vector3.UP * 9), [], 2)
 	if intersection:
 		return intersection['position'].y
 	else:
@@ -68,9 +69,6 @@ func find_floor(position) -> float:
 func random_angle():
 	var angle = randf() * PI * 2.0
 	return angle
-
-func _on_Area_put_out():
-	die()
 
 func die():
 	dying = true
@@ -103,3 +101,13 @@ func _on_SpreadTimer_timeout():
 		$SpreadTimer.wait_time = 10.0 + (randf() * 25.0)
 		$SpreadTimer.start()
 	
+
+
+func _on_Area_watered():
+	if extenguishable:
+		die()
+
+
+func _on_Area_body_entered(body):
+	# a plant
+	body.emit_signal("fire")

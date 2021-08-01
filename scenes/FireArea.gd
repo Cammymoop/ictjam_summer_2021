@@ -1,4 +1,4 @@
 extends Area
 
-signal put_out
+signal watered
 

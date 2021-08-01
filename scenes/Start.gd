@@ -1,5 +1,8 @@
 extends Spatial
 
+var fade_speed = 0.03
+var active = true
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -11,4 +14,11 @@ func _input(event):
 		get_tree().change_scene("res://scenes/Level1.tscn")
 
 func _process(delta):
-	$ColorRect.color.a -= delta * 0.03
+	if not active:
+		return
+	$ColorRect.color.a -= delta * fade_speed
+	
+	fade_speed += 0.002
+	
+	if $ColorRect.color.a <= 0:
+		active = false

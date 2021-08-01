@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Pickup.gd" type="Script" id=1]
+[ext_resource path="res://scenes/JustPickup.gd" type="Script" id=2]
+[ext_resource path="res://assets/models/purple_seed.glb" type="PackedScene" id=3]
+
+[sub_resource type="SphereShape" id=1]
+radius = 3.13259
+
+[node name="FountainSeedPickup" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="purple_seed" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.155298, 0.996051, 0.047941, -0.762142, -0.149843, 0.644374, 0.643082, 0.0629517, 0.775252, -0.294101, 0.289343, 0.238434 )
+
+[node name="Area" type="Area" parent="."]
+monitoring = false
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+item_name = "FountainSeed"
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[connection signal="on_pickup" from="Area" to="." method="_on_Area_on_pickup"]

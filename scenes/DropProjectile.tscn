@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/models/PalleteSolid.material" type="Material" id=1]
 [ext_resource path="res://scenes/DropProjectile.gd" type="Script" id=2]
 [ext_resource path="res://particles/WaterDrops.tres" type="Material" id=3]
+[ext_resource path="res://scenes/DropProjectileDraw.tres" type="SphereMesh" id=4]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.522894
@@ -37,18 +38,7 @@ surfaces/0 = {
 "vertex_count": 6
 }
 
-[sub_resource type="SpatialMaterial" id=4]
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-
-[sub_resource type="SphereMesh" id=5]
-material = SubResource( 4 )
-radius = 0.2
-height = 0.4
-radial_segments = 10
-rings = 5
-
-[sub_resource type="SphereShape" id=6]
+[sub_resource type="SphereShape" id=4]
 radius = 6.77631
 
 [node name="DropProjectile" type="RigidBody"]
@@ -94,7 +84,7 @@ one_shot = true
 explosiveness = 0.6
 local_coords = false
 process_material = ExtResource( 3 )
-draw_pass_1 = SubResource( 5 )
+draw_pass_1 = ExtResource( 4 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -107,7 +97,7 @@ collision_layer = 0
 collision_mask = 4112
 
 [node name="CollisionShape" type="CollisionShape" parent="Detector"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_DropProjectile_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

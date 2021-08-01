@@ -4,9 +4,11 @@ export (PackedScene) var drop_projectile:PackedScene = null
 export (PackedScene) var golden_drop_projectile:PackedScene = null
 
 export var starting_drops:int = 0
+export var big_start:bool = false
 
 var water_plant_packed = preload("res://scenes/water_plant.tscn")
 var golden_plant_packed = preload("res://scenes/goldenPlant.tscn")
+var fountain_plant_packed = preload("res://scenes/fountainPlant.tscn")
 
 onready var camera = $Camera
 
@@ -27,16 +29,21 @@ var velocity = Vector3()
 
 var items = {"GoldenDrop": 6, "GoldenSeed": 2}
 
-var current_item = ""
+var current_item = "GoldenDrop"
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	if not big_start:
+		current_item = ""
+		items = {}
+	
 	if starting_drops > 0:
 		items["Drop"] = starting_drops
 		current_item = "Drop"
-		update_displayed_item()
+	
+	update_displayed_item()
 
 func get_move_input():
 	var input_dir = Vector3()
@@ -123,6 +130,20 @@ func try_item(item_name):
 		areas[0].get_parent().queue_free()
 		
 		var new_plant = golden_plant_packed.instance()
+		get_parent().add_child(new_plant)
+		new_plant.global_transform = seed_transform
+		new_plant.baby()
+	elif item_name == "FountainSeed":
+		var areas = $PlantLooker.get_overlapping_areas()
+		if len(areas) < 1:
+			return
+		if not use_item("FountainSeed"):
+			return
+		
+		var seed_transform = areas[0].global_transform
+		areas[0].get_parent().queue_free()
+		
+		var new_plant = fountain_plant_packed.instance()
 		get_parent().add_child(new_plant)
 		new_plant.global_transform = seed_transform
 		new_plant.baby()

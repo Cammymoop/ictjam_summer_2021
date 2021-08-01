@@ -4,14 +4,14 @@
 [ext_resource path="res://scenes/Pickup.gd" type="Script" id=2]
 [ext_resource path="res://scenes/JustPickup.gd" type="Script" id=3]
 
-[sub_resource type="SphereShape" id=3]
+[sub_resource type="SphereShape" id=1]
 radius = 3.13259
 
 [node name="WaterSeedPickup" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="seed" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.150563, 1.04645, -0.054364, -0.382665, -0.00378036, 0.987038, 0.975495, 0.160033, 0.378803, -0.490119, 0.154106, 0.153189 )
+transform = Transform( 0.0696137, 0.730316, -0.682211, -0.874852, 0.375126, 0.312305, 0.483123, 0.574055, 0.663832, 0, 0.0715909, -0.167952 )
 
 [node name="Area" type="Area" parent="."]
 monitoring = false
@@ -21,6 +21,6 @@ script = ExtResource( 2 )
 item_name = "WaterSeed"
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [connection signal="on_pickup" from="Area" to="." method="_on_Area_on_pickup"]

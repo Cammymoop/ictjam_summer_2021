@@ -1,0 +1,12 @@
+[gd_resource type="SphereMesh" load_steps=2 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[resource]
+material = SubResource( 1 )
+radius = 0.2
+height = 0.4
+radial_segments = 10
+rings = 5

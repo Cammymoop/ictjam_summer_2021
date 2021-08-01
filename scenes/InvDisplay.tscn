@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/WaterSeedInv.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/DropInv.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/GoldenSeedInv.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/GoldenDropInv.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/PurpleSeedInv.tscn" type="PackedScene" id=6]
 
 [sub_resource type="World" id=1]
 environment = ExtResource( 1 )
@@ -56,4 +57,7 @@ visible = false
 visible = false
 
 [node name="GoldenDrop" parent="Viewport/InvSpot" instance=ExtResource( 5 )]
+visible = false
+
+[node name="FountainSeed" parent="Viewport/InvSpot" instance=ExtResource( 6 )]
 visible = false

@@ -1,15 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/models/golden_seed.glb" type="PackedScene" id=1]
-[ext_resource path="res://assets/models/seeded.glb" type="PackedScene" id=2]
-[ext_resource path="res://assets/models/water_plant_2.glb" type="PackedScene" id=3]
-[ext_resource path="res://scenes/PlantBody.gd" type="Script" id=4]
-[ext_resource path="res://scenes/Pickup.gd" type="Script" id=5]
-[ext_resource path="res://scenes/water_plant.gd" type="Script" id=6]
-[ext_resource path="res://assets/models/golden_plant.glb" type="PackedScene" id=7]
-[ext_resource path="res://assets/models/PalleteSolid.material" type="Material" id=8]
+[ext_resource path="res://assets/models/PalleteSolid.material" type="Material" id=1]
+[ext_resource path="res://scenes/Pickup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/JustPickup.gd" type="Script" id=3]
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=5]
 resource_name = "Icosphere"
 surfaces/0 = {
 "aabb": AABB( -0.951058, -1, -1, 1.90212, 2, 2 ),
@@ -18,13 +13,13 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 240,
-"material": ExtResource( 8 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 240
 }
 
-[sub_resource type="ArrayMesh" id=2]
+[sub_resource type="ArrayMesh" id=6]
 resource_name = "Plane003"
 surfaces/0 = {
 "aabb": AABB( -1.29116, 0, -0.0407404, 1.36855, 0.101684, 1.36856 ),
@@ -33,132 +28,53 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 6,
-"material": ExtResource( 8 ),
+"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 6
 }
 
-[sub_resource type="CylinderShape" id=3]
-height = 9.54516
+[sub_resource type="SphereShape" id=3]
+radius = 3.13259
 
-[sub_resource type="SphereShape" id=4]
-radius = 4.98128
+[node name="GoldenDrop" type="Spatial"]
+script = ExtResource( 3 )
 
-[sub_resource type="SphereShape" id=5]
-radius = 2.90874
+[node name="golden_plant" type="Spatial" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.216014, 0.457486 )
 
-[sub_resource type="SphereShape" id=6]
-radius = 1.27236
+[node name="Drop" type="Spatial" parent="golden_plant"]
+transform = Transform( 1.82336, 1.11117, -0.507337, -1.12898, 1.88102, 0.0623058, 0.466371, 0.209215, 2.13435, 0.163259, 3.23384, -0.36296 )
 
-[sub_resource type="SphereShape" id=7]
-radius = 1.62506
-
-[node name="Plant" type="Spatial"]
-script = ExtResource( 6 )
-
-[node name="Model" parent="." instance=ExtResource( 7 )]
-
-[node name="Icosphere" type="MeshInstance" parent="Model/Drop" index="4"]
+[node name="Icosphere" type="MeshInstance" parent="golden_plant/Drop"]
 transform = Transform( 0.893706, 0.44181, -0.0780567, -0.423846, 0.774368, -0.469796, -0.147116, 0.452944, 0.879317, -0.0198345, -0.984163, -0.176151 )
-mesh = SubResource( 1 )
+mesh = SubResource( 5 )
 material/0 = null
 
-[node name="Plane003" type="MeshInstance" parent="Model/Drop" index="5"]
+[node name="Plane003" type="MeshInstance" parent="golden_plant/Drop"]
 transform = Transform( 0.562336, 0.0175015, -0.180053, 0.0436732, -0.58369, 0.0796629, -0.175551, -0.0891472, -0.55694, 0.0124512, 0.0417404, -0.0726163 )
-mesh = SubResource( 2 )
+mesh = SubResource( 6 )
 material/0 = null
 
-[node name="Plane004" type="MeshInstance" parent="Model/Drop" index="6"]
+[node name="Plane004" type="MeshInstance" parent="golden_plant/Drop"]
 transform = Transform( -0.225671, -0.178243, 0.60287, 0.0826549, -0.643388, -0.159283, 0.623211, 0.0207872, 0.239431, 0.0291176, 0.0379715, -0.078848 )
-mesh = SubResource( 2 )
+mesh = SubResource( 6 )
 material/0 = null
 
-[node name="Plane005" type="MeshInstance" parent="Model/Drop" index="7"]
+[node name="Plane005" type="MeshInstance" parent="golden_plant/Drop"]
 transform = Transform( -0.372186, 0.112311, -0.416285, 0.0389482, -0.538918, -0.18022, -0.429406, -0.146227, 0.344466, 0.0291176, 0.0379715, -0.078848 )
-mesh = SubResource( 2 )
+mesh = SubResource( 6 )
 material/0 = null
 
-[node name="Drop" type="Spatial" parent="Model"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2366, 10.851, 1.94117 )
-
-[node name="StaticBody" type="StaticBody" parent="Model"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-collision_layer = 4097
-script = ExtResource( 4 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Model/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0592718, 4.45927, 0.194482 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2" type="CollisionShape" parent="Model/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13627, 13.6588, 0.670816 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Model/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8104, 11.9199, 2.24729 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Model/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08503, 12.5644, -2.4222 )
-shape = SubResource( 5 )
-
-[node name="Model2" parent="." instance=ExtResource( 3 )]
-visible = false
-
-[node name="StaticBody" type="StaticBody" parent="Model2"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-collision_layer = 4097
-script = ExtResource( 4 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Model2/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441143, 2.57763, 0.194482 )
-shape = SubResource( 3 )
-
-[node name="seeded" parent="." instance=ExtResource( 2 )]
-
-[node name="GetDrop" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11058, 4.10295, 0.949074 )
+[node name="Area" type="Area" parent="."]
+transform = Transform( 0.495938, 0.843079, -0.207997, -0.86193, 0.507027, 0, 0.10546, 0.179279, 0.978129, -0.216296, 0.911856, -0.108129 )
 monitoring = false
-monitorable = false
 collision_layer = 4
-collision_mask = 4
-script = ExtResource( 5 )
+collision_mask = 0
+script = ExtResource( 2 )
 item_name = "GoldenDrop"
 
-[node name="CollisionShape" type="CollisionShape" parent="GetDrop"]
-shape = SubResource( 6 )
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
 
-[node name="GetDrop2" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344557, 5.17582, 0.300343 )
-monitoring = false
-monitorable = false
-collision_layer = 4
-collision_mask = 4
-script = ExtResource( 5 )
-item_name = "WaterSeed"
-
-[node name="CollisionShape" type="CollisionShape" parent="GetDrop2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.473753, 0, 0 )
-shape = SubResource( 7 )
-
-[node name="Seed" type="Spatial" parent="."]
-transform = Transform( 0.772246, -0.635324, 0, 0.635324, 0.772246, 0, 0, 0, 1, 0, 1.96659, -0.220709 )
-
-[node name="golden_seed" parent="Seed" instance=ExtResource( 1 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.89184, 2.29956, 0.547535 )
-
-[node name="SeedTimer" type="Timer" parent="."]
-wait_time = 140.0
-one_shot = true
-
-[connection signal="fire" from="Model/StaticBody" to="." method="_on_StaticBody_fire"]
-[connection signal="watered" from="Model/StaticBody" to="." method="_on_StaticBody_watered"]
-[connection signal="fire" from="Model2/StaticBody" to="." method="_on_StaticBody_fire"]
-[connection signal="watered" from="Model2/StaticBody" to="." method="_on_StaticBody_watered"]
-[connection signal="on_pickup" from="GetDrop" to="." method="_on_GetDrop_on_pickup"]
-[connection signal="on_pickup" from="GetDrop2" to="." method="_on_GetDrop2_on_pickup"]
-[connection signal="timeout" from="SeedTimer" to="." method="_on_SeedTimer_timeout"]
-
-[editable path="Model"]
-[editable path="Model2"]
+[connection signal="on_pickup" from="Area" to="." method="_on_Area_on_pickup"]

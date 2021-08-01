@@ -188,7 +188,7 @@ func _process(delta):
 		
 		if Input.is_action_just_pressed("jump"):
 			var bodies = $Feet.get_overlapping_bodies()
-			if len(bodies) > 0:
+			if len(bodies) > 1:
 				add_velocity_impulse(jump_strength, Vector3.UP)
 		
 		if Input.is_action_just_pressed("toggle_item"):

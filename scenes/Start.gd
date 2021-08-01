@@ -11,7 +11,10 @@ func _input(event):
 		get_tree().quit()
 	
 	if event.is_action_type() and event.is_pressed():
-		get_tree().change_scene("res://scenes/Level1.tscn")
+		if event.is_action("Fullscreen"):
+			OS.window_fullscreen = !OS.window_fullscreen
+		else:
+			get_tree().change_scene("res://scenes/Level1.tscn")
 
 func _process(delta):
 	if not active:

@@ -7,7 +7,7 @@ export var start_baby:bool = true
 
 var dirt = preload("res://scenes/EmptySpot.tscn")
 
-var baby = false
+var is_baby = false
 export var grow_speed = 0.01
 export var drop_grow_speed = 0.18
 var growth = 0
@@ -30,7 +30,7 @@ func _ready():
 		drop_ready = true
 
 func baby():
-	baby = true
+	is_baby = true
 	drop_model.visible = false
 	drop_ready = false
 	whole_model.scale = Vector3.ONE * 0.001
@@ -39,7 +39,7 @@ func baby():
 
 func watered():
 	growing = true
-	baby = false
+	is_baby = false
 
 func grow_drop():
 	drop_model.scale = Vector3.ZERO
@@ -82,7 +82,7 @@ func _on_GetDrop_on_pickup():
 
 
 func _on_StaticBody_watered():
-	if baby:
+	if is_baby:
 		watered()
 
 func _on_StaticBody_fire():

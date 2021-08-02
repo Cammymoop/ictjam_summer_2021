@@ -174,14 +174,14 @@ func update_displayed_item():
 	if len(ItemBox) < 1:
 		return
 	
-	var items = ItemBox[0].get_children()
-	for item in items:
+	var display_items = ItemBox[0].get_children()
+	for item in display_items:
 		if current_item == item.name:
 			item.visible = true
 		else:
 			item.visible = false
 
-func _process(delta):
+func _process(_delta):
 	if not stunned:
 		if Input.is_action_just_pressed("use_item"):
 			try_item(current_item)

@@ -7,14 +7,15 @@ export var start_baby:bool = true
 
 var dirt = preload("res://scenes/EmptySpot.tscn")
 
-var baby = false
-var adult = true
+var is_baby = false
+var is_adult = true
 var active = false
 export var grow_speed = 0.01
 var growth = 0
 var growing = false
 
 var water_amount = 0.0
+export var starting_water = 0.5
 export var water_drain = 0.002
 var refill_amount = 0.34
 
@@ -39,8 +40,8 @@ func _ready():
 		activate()
 
 func baby():
-	baby = true
-	adult = false
+	is_baby = true
+	is_adult = false
 	deactivate()
 	whole_model.scale = Vector3.ONE * 0.001
 	growing = false
@@ -48,7 +49,7 @@ func baby():
 
 func watered():
 	growing = true
-	baby = false
+	is_baby = false
 
 func _process(delta):
 	if not growing and not active:
@@ -59,7 +60,8 @@ func _process(delta):
 		whole_model.scale = target_scale * Vector3.ONE * growth
 		if growth >= 1:
 			growing = false
-			adult = true
+			is_adult = true
+			add_water(starting_water)
 	
 	if active:
 		water_amount -= delta * water_drain
@@ -91,18 +93,21 @@ func activate():
 	active = true
 	$FireWarding.collision_layer = warding_mask
 	if not seed_started:
-		seed_started
+		seed_started = true
 		$SeedTimer.start()
 
+func add_water(amount):
+	if not active:
+		activate()
+	water_amount += amount
+	if water_amount > 1:
+		water_amount = 1.0
+
 func _on_StaticBody_watered():
-	if baby:
+	if is_baby:
 		watered()
-	elif adult:
-		if not active:
-			activate()
-		water_amount += refill_amount
-		if water_amount > 1:
-			water_amount = 1.0
+	elif is_adult:
+		add_water(refill_amount)
 
 func _on_StaticBody_fire():
 	# Oh no, burning up for you

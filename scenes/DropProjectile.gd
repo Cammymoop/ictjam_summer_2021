@@ -6,7 +6,7 @@ var floor_sink = -0.1
 
 var packed_dirt:PackedScene = preload("res://scenes/EmptySpot.tscn")
 
-func _on_DropProjectile_body_entered(body):
+func _on_DropProjectile_body_entered(_body):
 	$Particles.emitting = true
 	stop_physics()
 	$Projectile.visible = false

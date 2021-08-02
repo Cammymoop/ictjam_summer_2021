@@ -42,7 +42,8 @@ func check_redundant():
 	else:
 		var areas = $Checker.get_overlapping_areas()
 		
-		if len(areas) > 1:
+		print("got past body check, " + str(len(areas)) + " areas")
+		if len(areas) > 0:
 			die()
 		else:
 			get_node("/root/FireMaker").spread_one()

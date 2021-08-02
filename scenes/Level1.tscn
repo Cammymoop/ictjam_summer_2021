@@ -1092,7 +1092,7 @@ spreads = false
 extenguishable = false
 
 [node name="hugeFire7" parent="Edges" instance=ExtResource( 1 )]
-transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 140.268, -0.747921, -14.0891 )
+transform = Transform( 3.11796, 0, 0, 0, 3.11796, 0, 0, 0, 3.11796, 140.261, -0.883526, -14.3752 )
 spreads = false
 extenguishable = false
 

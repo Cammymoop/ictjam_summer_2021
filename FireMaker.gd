@@ -22,5 +22,5 @@ func get_fire_packed():
 	return FireScene
 
 func _on_T():
-	print_debug("reset regulator " + str(regulator))
+	#print_debug("reset regulator " + str(regulator))
 	regulator = 0

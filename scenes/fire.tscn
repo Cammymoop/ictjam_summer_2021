@@ -3,6 +3,7 @@
 [ext_resource path="res://particles/flame_particle_pass.tres" type="QuadMesh" id=1]
 [ext_resource path="res://scenes/FireArea.gd" type="Script" id=2]
 [ext_resource path="res://scenes/fire.gd" type="Script" id=3]
+[ext_resource path="res://scenes/fire_area_shape.tres" type="Shape" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.550388, 0.751938, 1 )
@@ -69,9 +70,6 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id=12]
 material = SubResource( 11 )
 
-[sub_resource type="SphereShape" id=13]
-radius = 3.51604
-
 [sub_resource type="SphereShape" id=14]
 radius = 0.894327
 
@@ -95,14 +93,13 @@ draw_pass_1 = SubResource( 12 )
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78167, 0 )
-monitoring = false
 monitorable = false
 collision_layer = 16
 collision_mask = 4096
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 13 )
+shape = ExtResource( 4 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 3.0

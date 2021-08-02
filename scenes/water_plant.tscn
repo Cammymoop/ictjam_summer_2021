@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/models/seed.glb" type="PackedScene" id=6]
 
 [sub_resource type="CylinderShape" id=1]
+radius = 0.722193
 height = 4.05365
 
 [sub_resource type="SphereShape" id=2]

@@ -2,6 +2,7 @@ extends Spatial
 
 export var spreads:bool = true
 export var extenguishable = true
+export var immediate_spread = false
 
 var floor_elevate = -1.0
 
@@ -12,11 +13,16 @@ var player_ref = false
 var from_spread = false
 var active = true
 
+var detected_plants = []
+
 var max_active_distance = 90
 
 func _ready():
 	if spreads:
-		$SpreadTimer.wait_time = 10.0 + (randf() * 25.0)
+		if immediate_spread:
+			$SpreadTimer.wait_time = 1.0
+		else:
+			$SpreadTimer.wait_time = 10.0 + (randf() * 25.0)
 		$SpreadTimer.start()
 	
 	player_ref = get_tree().get_nodes_in_group("Player")
@@ -30,7 +36,6 @@ func _ready():
 		check_redundant()
 	else:
 		$Checker.queue_free()
-		$Area.monitoring = true
 		$Area.monitorable = true
 
 func check_redundant():
@@ -42,18 +47,31 @@ func check_redundant():
 	else:
 		var areas = $Checker.get_overlapping_areas()
 		
-		print("got past body check, " + str(len(areas)) + " areas")
 		if len(areas) > 0:
 			die()
 		else:
 			get_node("/root/FireMaker").spread_one()
 			active = true
-			$Area.monitoring = true
 			$Area.monitorable = true
 			$FireParticles.emitting = true
 			$SmokeParticles.emitting = true
+			
+			# Workaround because the static bodies can't be re-detected by activating the area or anything like that
+			for plant in detected_plants:
+				if plant.is_inside_tree():
+					plant.emit_signal("fire")
 	
 	$Checker.queue_free()
+
+# plants already inside aren't detected when monitoring is set to true so here's a workaround
+func turn_on_area():
+	$Area.monitoring = true
+	yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
+	print("now looking for plants")
+	for plant in $Area.get_overlapping_bodies():
+		print("a plant is here")
+		plant.emit_signal("fire")
 
 func spread():
 	if not get_node("/root/FireMaker").can_spread():
@@ -125,6 +143,9 @@ func _on_Area_watered():
 
 
 func _on_Area_body_entered(body):
+	print("body entered")
 	# a plant
 	if active:
 		body.emit_signal("fire")
+	else:
+		detected_plants.append(body)

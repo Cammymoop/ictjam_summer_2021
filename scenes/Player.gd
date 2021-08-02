@@ -230,4 +230,4 @@ func _on_PickupBox_area_entered(area):
 			current_item = item_name
 			update_displayed_item()
 	
-	print_debug("You now have " + str(items[item_name]) + " " + item_name)
+	#print_debug("You now have " + str(items[item_name]) + " " + item_name)

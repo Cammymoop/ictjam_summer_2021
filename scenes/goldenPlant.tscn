@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/models/golden_seed.glb" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/seeded.glb" type="PackedScene" id=2]
-[ext_resource path="res://assets/models/water_plant_2.glb" type="PackedScene" id=3]
 [ext_resource path="res://scenes/PlantBody.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Pickup.gd" type="Script" id=5]
 [ext_resource path="res://scenes/water_plant.gd" type="Script" id=6]
@@ -103,18 +102,6 @@ shape = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08503, 12.5644, -2.4222 )
 shape = SubResource( 5 )
 
-[node name="Model2" parent="." instance=ExtResource( 3 )]
-visible = false
-
-[node name="StaticBody" type="StaticBody" parent="Model2"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-collision_layer = 4097
-script = ExtResource( 4 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Model2/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.441143, 2.57763, 0.194482 )
-shape = SubResource( 3 )
-
 [node name="seeded" parent="." instance=ExtResource( 2 )]
 
 [node name="GetDrop" type="Area" parent="."]
@@ -130,13 +117,13 @@ item_name = "GoldenDrop"
 shape = SubResource( 6 )
 
 [node name="GetDrop2" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344557, 5.17582, 0.300343 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.344557, 4.91044, 0.300343 )
 monitoring = false
 monitorable = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 5 )
-item_name = "WaterSeed"
+item_name = "GoldenSeed"
 
 [node name="CollisionShape" type="CollisionShape" parent="GetDrop2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.473753, 0, 0 )
@@ -144,6 +131,7 @@ shape = SubResource( 7 )
 
 [node name="Seed" type="Spatial" parent="."]
 transform = Transform( 0.772246, -0.635324, 0, 0.635324, 0.772246, 0, 0, 0, 1, 0, 1.96659, -0.220709 )
+visible = false
 
 [node name="golden_seed" parent="Seed" instance=ExtResource( 1 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.89184, 2.29956, 0.547535 )
@@ -154,11 +142,8 @@ one_shot = true
 
 [connection signal="fire" from="Model/StaticBody" to="." method="_on_StaticBody_fire"]
 [connection signal="watered" from="Model/StaticBody" to="." method="_on_StaticBody_watered"]
-[connection signal="fire" from="Model2/StaticBody" to="." method="_on_StaticBody_fire"]
-[connection signal="watered" from="Model2/StaticBody" to="." method="_on_StaticBody_watered"]
 [connection signal="on_pickup" from="GetDrop" to="." method="_on_GetDrop_on_pickup"]
 [connection signal="on_pickup" from="GetDrop2" to="." method="_on_GetDrop2_on_pickup"]
 [connection signal="timeout" from="SeedTimer" to="." method="_on_SeedTimer_timeout"]
 
 [editable path="Model"]
-[editable path="Model2"]

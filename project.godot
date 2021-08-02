@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="ictjam_summer_2021"
+config/name="Waterseed ictjam_w_2021"
 config/description="Waterseed: Hold back the fires of the world's end"
 run/main_scene="res://scenes/Start.tscn"
 config/icon="res://icon.png"
@@ -1141,6 +1141,16 @@ pause={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="Solid Object"
+3d_physics/layer_2="Solid Terrain"
+3d_physics/layer_3="Pickups"
+3d_physics/layer_5="Fire"
+3d_physics/layer_6="No Fire Allowed"
+3d_physics/layer_11="Dirt Spot"
+3d_physics/layer_13="Plant"
 
 [physics]
 

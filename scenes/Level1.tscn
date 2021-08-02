@@ -26,19 +26,19 @@ extents = Vector3( 4.70452, 5.40402, 6.27955 )
 radius = 12.2821
 height = 9.54796
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 14.2319, 4.06586, 4.43199 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 34.1737, 13.2901, 21.8743 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 49.7498, 13.2901, 21.8743 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 156.001, 13.2901, 46.9295 )
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 128.442, 13.2901, 21.8743 )
 
 [node name="Spatial" type="Spatial"]
@@ -78,6 +78,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9792, -0.747917, 32.3975 )
 
 [node name="fire19" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6497, -0.747917, 41.2761 )
+
+[node name="fire51" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4893, -0.747917, -8.82658 )
+
+[node name="fire52" parent="fires" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.5666, -0.747917, -0.92775 )
 
 [node name="fire20" parent="fires" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6634, -0.747921, 52.4534 )
@@ -534,7 +540,7 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Solid/NoFireZone2"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="ViewportContainer" parent="." instance=ExtResource( 12 )]
 
@@ -548,59 +554,59 @@ collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.887606, 0, 0.460603, 0, 1, 0, -0.460603, 0, 0.887606, -10.0689, 0, 10.147 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape13" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.887606, 0, 0.460603, 0, 1, 0, -0.460603, 0, 0.887606, 51.7372, -7.62939e-06, 16.1857 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape14" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.887606, 0, 0.460603, 0, 1, 0, -0.460603, 0, 0.887606, 98.8394, -7.62939e-06, -2.18869 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.990724, 0, 0.135888, 0, 1, 0, -0.135888, 0, 0.990724, -80.4688, 0, 33.7186 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.948573, 0, -0.31656, 0, 1, 0, 0.31656, 0, 0.948573, -156.042, 0, 24.7199 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.998257, 0, 0.0590102, 0, 1, 0, -0.0590102, 0, 0.998257, -76.7033, 0, -214.693 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape6" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.998257, 0, 0.0590102, 0, 1, 0, -0.0590102, 0, 0.998257, -11.1693, 0, -220.859 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape7" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.974847, 0, 0.222876, 0, 1, 0, -0.222876, 0, 0.974847, -140.317, 1.52588e-05, -208.469 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape8" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.974847, 0, 0.222876, 0, 1, 0, -0.222876, 0, 0.974847, -140.317, 1.52588e-05, -208.469 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape9" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.697002, 0, 0.717069, 0, 1, 0, -0.717069, 0, 0.697002, -176.772, 1.52588e-05, -173.032 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape10" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.898541, 0, -0.438889, 0, 1, 0, 0.438889, 0, 0.898541, 51.0791, 1.52588e-05, -217.624 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape11" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.810911, 0, -0.58517, 0, 1, 0, 0.58517, 0, 0.810911, 111.1, 1.52588e-05, -189.272 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape12" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( -0.263553, 0, -0.964645, 0, 1, 0, 0.964645, 0, -0.263553, 154.093, 1.52588e-05, -49.0115 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="Thingies/OuterPerimiterLimiter"]
 transform = Transform( 0.00724307, 0, -0.999974, 0, 1, 0, 0.999974, 0, 0.00724307, -210.172, 0, -38.6461 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Pickups" type="Spatial" parent="Thingies"]
 
@@ -690,7 +696,7 @@ transform = Transform( -0.264544, -0.449716, 0.853095, -0.86193, 0.507027, 0, -0
 [node name="FountainSeeds" type="Spatial" parent="Thingies/Pickups"]
 
 [node name="FountainSeedPickup" parent="Thingies/Pickups/FountainSeeds" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.0382, 0, -9.29188 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.0818, 0, -3.93967 )
 
 [node name="FountainSeedPickup2" parent="Thingies/Pickups/FountainSeeds" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.26, 3.8147e-06, -99.3393 )
@@ -720,6 +726,9 @@ transform = Transform( 0.0234202, 0, -0.999726, 0, 1, 0, 0.999726, 0, 0.0234202,
 
 [node name="WaterSeedPickup" parent="Thingies/Pickups/WaterSeeds" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.7319 )
+
+[node name="WaterSeedPickup3" parent="Thingies/Pickups/WaterSeeds" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -51.1112, 0, -7.62932 )
 
 [node name="WaterSeedPickup2" parent="Thingies/Pickups/WaterSeeds" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.213545, 0, -107.416 )

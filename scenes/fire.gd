@@ -10,6 +10,7 @@ var dying = false
 
 var player_ref = false
 var from_spread = false
+var active = true
 
 var max_active_distance = 90
 
@@ -23,19 +24,33 @@ func _ready():
 		player_ref = false
 	
 	if from_spread:
+		active = false
+		$FireParticles.emitting = false
+		$SmokeParticles.emitting = false
 		check_redundant()
 	else:
 		$Checker.queue_free()
+		$Area.monitoring = true
+		$Area.monitorable = true
 
 func check_redundant():
 	yield(get_tree(), "idle_frame")
 	yield(get_tree(), "idle_frame")
-	var areas = $Checker.get_overlapping_areas()
-	
-	if len(areas) > 1:
+	var bodies = $Checker.get_overlapping_bodies()
+	if len(bodies) > 0:
 		die()
 	else:
-		get_node("/root/FireMaker").spread_one()
+		var areas = $Checker.get_overlapping_areas()
+		
+		if len(areas) > 1:
+			die()
+		else:
+			get_node("/root/FireMaker").spread_one()
+			active = true
+			$Area.monitoring = true
+			$Area.monitorable = true
+			$FireParticles.emitting = true
+			$SmokeParticles.emitting = true
 	
 	$Checker.queue_free()
 
@@ -110,4 +125,5 @@ func _on_Area_watered():
 
 func _on_Area_body_entered(body):
 	# a plant
-	body.emit_signal("fire")
+	if active:
+		body.emit_signal("fire")

@@ -95,6 +95,8 @@ draw_pass_1 = SubResource( 12 )
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78167, 0 )
+monitoring = false
+monitorable = false
 collision_layer = 16
 collision_mask = 4096
 script = ExtResource( 2 )

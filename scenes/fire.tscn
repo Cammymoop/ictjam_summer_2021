@@ -30,6 +30,7 @@ trail_size_modifier = SubResource( 6 )
 emission_shape = 1
 emission_sphere_radius = 2.63
 direction = Vector3( 0, 1, 0 )
+spread = 90.0
 gravity = Vector3( 0, 4.059, 0 )
 initial_velocity = 4.31
 tangential_accel = 0.27
@@ -80,7 +81,7 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0424, 0 )
 amount = 256
 lifetime = 2.02
-visibility_aabb = AABB( -4, -21.0751, -4, 8, 42.1503, 8 )
+visibility_aabb = AABB( -8.66387, -2.52402, -9.41917, 17.3277, 22.0891, 18.8383 )
 process_material = SubResource( 7 )
 draw_pass_1 = ExtResource( 1 )
 
@@ -88,6 +89,7 @@ draw_pass_1 = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0424, 0 )
 amount = 190
 lifetime = 1.47
+visibility_aabb = AABB( -4, -2.02099, -4, 8, 8.9453, 8 )
 process_material = SubResource( 10 )
 draw_pass_1 = SubResource( 12 )
 

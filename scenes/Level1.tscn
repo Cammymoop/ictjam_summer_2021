@@ -66,6 +66,7 @@ start_baby = false
 
 [node name="Player" parent="ViewportContainer2/Viewport/Spatial" instance=ExtResource( 3 )]
 transform = Transform( 0.653037, 0, -0.757325, 0, 1, 0, 0.757325, 0, 0.653037, -85.3156, 2.14514, 31.8378 )
+big_start = true
 
 [node name="fires" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -255,6 +256,9 @@ transform = Transform( 0.131445, 0, 0.115474, 0, 0.174963, 0, -0.115474, 0, 0.13
 transform = Transform( 0.13775, 0, -0.0139824, 0, 0.138457, 0, 0.0139824, 0, 0.13775, -46.4274, 0.0293915, 13.5106 )
 
 [node name="rock6" parent="Solid" instance=ExtResource( 8 )]
+transform = Transform( 0.0046244, 0, 0.13838, 0, 0.138457, 0, -0.13838, 0, 0.0046244, -50.8844, 0.0293915, 14.4293 )
+
+[node name="rock7" parent="Solid" instance=ExtResource( 8 )]
 transform = Transform( 0.0046244, 0, 0.13838, 0, 0.138457, 0, -0.13838, 0, 0.0046244, -50.8844, 0.0293915, 14.4293 )
 
 [node name="rock4" parent="Solid" instance=ExtResource( 8 )]
@@ -447,7 +451,7 @@ transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.606087,
 shape = SubResource( 1 )
 
 [node name="Cube36" parent="Solid" instance=ExtResource( 7 )]
-transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -92.9547, 3.79146, -69.828 )
+transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -92.9547, 3.5429, -69.828 )
 
 [node name="Cube37" parent="Solid" instance=ExtResource( 7 )]
 transform = Transform( 0.570097, 0, -0.821577, 0, 1, 0, 0.821577, 0, 0.570097, -100.329, 9.53192, -63.7563 )
@@ -462,7 +466,7 @@ transform = Transform( 0.684979, 0, -0.728562, 0, 1, 0, 0.728562, 0, 0.684979, -
 transform = Transform( 0.684979, 0, -0.728562, 0, 1, 0, 0.728562, 0, 0.684979, -124.362, 18.4083, -43.0675 )
 
 [node name="Cube35" parent="Solid" instance=ExtResource( 7 )]
-transform = Transform( 0.356151, 0, -0.934428, 0, 1, 0, 0.934428, 0, 0.356151, -87.4695, 0.404363, -80.5867 )
+transform = Transform( 0.356151, 0, -0.934428, 0, 1, 0, 0.934428, 0, 0.356151, -87.4695, 0.169639, -80.5867 )
 
 [node name="Cube10" parent="Solid" instance=ExtResource( 7 )]
 transform = Transform( 0.612273, 0, -0.790647, 0, 1, 0, 0.790647, 0, 0.612273, 58.275, 0, -18.686 )

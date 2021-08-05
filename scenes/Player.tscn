@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/DropProjectile.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.828941
 height = 2.31526
+
+[sub_resource type="CylinderShape" id=7]
+radius = 0.842215
+height = 1.6277
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 1.00265
@@ -60,6 +64,10 @@ golden_drop_projectile = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.986747, 0 )
+shape = SubResource( 7 )
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50389, 0 )
 current = true
@@ -101,6 +109,7 @@ __meta__ = {
 
 [node name="Feet" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.40332, 0 )
+visible = false
 monitorable = false
 collision_layer = 0
 collision_mask = 3

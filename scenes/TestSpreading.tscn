@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Cube.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/TestBurning.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.749558, -0.500738, 0.432925, 0, 0.654027, 0.756472, -0.661938, -0.56702, 0.490231, 6.4548, 22.9966, 18.7969 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57114, 0, 19.8344 )
+big_start = true
+
+[node name="fire" parent="." instance=ExtResource( 1 )]
+immediate_spread = true
+
+[node name="fire2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5282, 2.35151, 16.3789 )
+immediate_spread = true
+
+[node name="Cube" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22441, -4.17255, -0.648134 )
+
+[node name="Cube2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5125, -4.17255, 0.237497 )
+
+[node name="Cube3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.91357, -4.17255, -7.58219 )
+
+[node name="Cube4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08643, -4.17255, -8.58219 )
+
+[node name="Cube5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6881, -4.4165, 16.6141 )
+
+[editable path="Floor"]

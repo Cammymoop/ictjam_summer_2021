@@ -2,7 +2,7 @@ extends RigidBody
 
 export var golden = false
 
-var floor_sink = -0.1
+var floor_sink = -0.05
 
 var packed_dirt:PackedScene = preload("res://scenes/EmptySpot.tscn")
 

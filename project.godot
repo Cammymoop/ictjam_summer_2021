@@ -25,6 +25,7 @@ Pauser="*res://pauser.gd"
 window/size/width=1600
 window/size/height=800
 window/size/fullscreen=true
+window/size/fullscreen.debug=false
 
 [importer_defaults]
 

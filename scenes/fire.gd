@@ -4,7 +4,7 @@ export var spreads:bool = true
 export var extenguishable = true
 export var immediate_spread = false
 
-var floor_elevate = -1.0
+var floor_elevate = -0.5
 
 var spread_distance = 7.0
 var dying = false
@@ -44,6 +44,7 @@ func check_redundant():
 	var bodies = $Checker.get_overlapping_bodies()
 	if len(bodies) > 0:
 		die()
+		print("inside solid terrain")
 	else:
 		var areas = $Checker.get_overlapping_areas()
 		
@@ -74,6 +75,7 @@ func turn_on_area():
 		plant.emit_signal("fire")
 
 func spread():
+	yield(get_tree(), "physics_frame")
 	if not get_node("/root/FireMaker").can_spread():
 		return
 	var new_offset = spread_distance * Vector3.FORWARD
@@ -94,7 +96,7 @@ func spread():
 
 func find_floor(position) -> float:
 	var state = PhysicsServer.space_get_direct_state(get_world().space)
-	var intersection = state.intersect_ray(position + (Vector3.UP * 2), position - (Vector3.UP * 9), [], 2)
+	var intersection = state.intersect_ray(position + (Vector3.UP * 8), position - (Vector3.UP * 11), [], 2)
 	if intersection:
 		return intersection['position'].y
 	else:
